@@ -46,6 +46,7 @@ function isDeliveryItemOpen(item: ContentNavigationItem): boolean {
   }
 
   return false
+}
 </script>
 
 <template>
