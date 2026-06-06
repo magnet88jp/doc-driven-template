@@ -57,7 +57,7 @@ Document Driven Monorepo
   :::u-page-feature
   ---
   icon: i-lucide-compass
-  to: /design/overview/vision
+  to: /delivery/current-scope
   ---
   #title
   Current Scope
@@ -69,7 +69,7 @@ Document Driven Monorepo
   :::u-page-feature
   ---
   icon: i-lucide-compass
-  to: /design/overview/vision
+  to: /delivery/implementation-flow
   ---
   #title
   Implementation Flow
@@ -81,7 +81,7 @@ Document Driven Monorepo
   :::u-page-feature
   ---
   icon: i-lucide-compass
-  to: /design/overview/vision
+  to: /delivery/scopes/mvp/task-list
   ---
   #title
   対象 Task
@@ -114,8 +114,8 @@ Document Driven Monorepo
 
   :::u-page-feature
   ---
-  icon: i-lucide-compass
-  to: /design/overview/vision
+  icon: i-lucide-route
+  to: /operations/overview
   ---
   #title
   operations
@@ -126,8 +126,8 @@ Document Driven Monorepo
 
   :::u-page-feature
   ---
-  icon: i-lucide-compass
-  to: /design/overview/vision
+  icon: i-lucide-list-checks
+  to: /delivery/development-roadmap
   ---
   #title
   delivery
