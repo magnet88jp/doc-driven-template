@@ -1,263 +1,240 @@
 ---
 seo:
-  title: Nuxt Docs Template
-  description: Create stunning, fast and SEO-optimized documentation sites with Nuxt UI.
+  title: Document Driven Monorepo
+  description: AI Agent と人間が docs を介して合意しながら開発するためのドキュメント。
 ---
 
-::u-page-hero{class="dark:bg-gradient-to-b from-neutral-900 to-neutral-950"}
+::u-page-hero
 ---
 orientation: horizontal
 ---
-#top
-:hero-background
-
 #title
-Ship Beautiful [Documentation]{.text-primary}.
+Document Driven Monorepo
 
 #description
-Build professional documentation with Nuxt UI's powerful components, enhanced typography, and seamless Nuxt Content integration. The same system trusted by the entire [Nuxt ecosystem](https://nuxt.com).
+このドキュメントサイトは、AI Agent と人間が同じ前提を読んでから実装するための合意面です。
+
+設計の理想形は `design` に置き、実際の運用手順は `operations` に置きます。現在の開発スコープ、理想設計との差分、タスク、受け入れ条件は `delivery` に置きます。
 
 #links
   :::u-button
   ---
-  to: /getting-started
+  to: /design/overview/vision
   size: xl
   trailing-icon: i-lucide-arrow-right
   ---
-  Get started
+  設計思想を読む
   :::
 
   :::u-button
   ---
-  icon: i-simple-icons-github
+  to: /operations/overview
   color: neutral
   variant: outline
   size: xl
-  to: https://github.com/nuxt-ui-templates/docs
-  target: _blank
+  icon: i-lucide-activity
   ---
-  Use this template
+  オペレーションを見る
   :::
 
-#default
-  :::prose-pre
+  :::u-button
   ---
-  code: |
-    export default defineNuxtConfig({
-      modules: [
-        '@nuxt/ui',
-        '@nuxt/content',
-        'nuxt-og-image',
-        'nuxt-llms'
-      ],
-
-      css: ['~/assets/css/main.css']
-    })
-  filename: nuxt.config.ts
+  to: /delivery/current-scope
+  color: neutral
+  variant: outline
+  size: xl
+  icon: i-lucide-list-checks
   ---
-
-  ```ts [nuxt.config.ts]
-  export default defineNuxtConfig({
-    modules: [
-      '@nuxt/ui',
-      '@nuxt/content',
-      'nuxt-og-image',
-      'nuxt-llms'
-    ],
-
-    css: ['~/assets/css/main.css']
-  })
-  ```
+  開発計画を見る
   :::
 ::
 
-::u-page-section{class="dark:bg-neutral-950"}
+::u-page-section
 #title
-Powered by Nuxt UI components
-
-#links
-  :::u-button
-  ---
-  color: neutral
-  size: lg
-  target: _blank
-  to: https://ui.nuxt.com/docs/getting-started/installation/nuxt
-  trailingIcon: i-lucide-arrow-right
-  variant: subtle
-  ---
-  Explore Nuxt UI
-  :::
+開発前に読む docs
 
 #features
   :::u-page-feature
   ---
-  icon: i-lucide-palette
+  icon: i-lucide-compass
+  to: /delivery/current-scope
   ---
   #title
-  100+ UI Components
+  Current Scope
 
   #description
-  Access the complete Nuxt UI component library. From badges to modals, everything styled and accessible out of the box.
+  `docs/content/delivery/2.current-scope.md`
   :::
 
   :::u-page-feature
   ---
-  icon: i-lucide-type
+  icon: i-lucide-compass
+  to: /delivery/implementation-flow
   ---
   #title
-  Beautiful Typography
+  Implementation Flow
 
   #description
-  Pre-styled prose components with perfect visual harmony. No need for @tailwindcss/typography - get precise control over every element.
+  `docs/content/delivery/3.implementation-flow.md`
+  :::
+
+  :::u-page-feature
+  ---
+  icon: i-lucide-compass
+  to: /delivery/scopes/mvp/task-list
+  ---
+  #title
+  対象 Task
+
+  #description
+  `docs/content/delivery/scopes/**/tasks/*.md`
+  :::
+::
+
+
+::u-page-section
+#title
+ドキュメントの責務
+
+#description
+実装は docs で合意した範囲を対象にします。テーマやドメインを変える場合も、AI Agent が自由に仕様を作るのではなく、先に docs を更新してから実装します。
+
+#features
+  :::u-page-feature
+  ---
+  icon: i-lucide-compass
+  to: /design/overview/vision
+  ---
+  #title
+  design
+
+  #description
+  目指す最終形、責務境界、アーキテクチャ。
+  :::
+
+  :::u-page-feature
+  ---
+  icon: i-lucide-route
+  to: /operations/overview
+  ---
+  #title
+  operations
+
+  #description
+  実際に繰り返す標準手順。
+  :::
+
+  :::u-page-feature
+  ---
+  icon: i-lucide-list-checks
+  to: /delivery/development-roadmap
+  ---
+  #title
+  delivery
+
+  #description
+  現在の開発判断、スコープ、タスク、受け入れ条件。
+  :::
+::
+
+::u-page-section
+#title
+Documentation Map
+
+#features
+  :::u-page-feature
+  ---
+  icon: i-lucide-compass
+  to: /design/overview/vision
+  ---
+  #title
+  Overview
+
+  #description
+  投資対象、時間軸、期待モデル、設計原則、AIの役割を定義します。
   :::
 
   :::u-page-feature
   ---
   icon: i-lucide-layers
+  to: /design/architecture/layer-model
   ---
   #title
-  Rich Prose Components
+  Architecture
 
   #description
-  Accordions, cards, callouts, tabs, steps, code blocks, and more - all provided by Nuxt UI for interactive documentation.
-  :::
-
-  :::u-page-feature
-  ---
-  icon: i-lucide-search
-  ---
-  #title
-  Built-in Search
-
-  #description
-  Full-text search with ContentSearch component. No need for Algolia - instant, relevant results with keyboard shortcuts (⌘K).
-  :::
-
-  :::u-page-feature
-  ---
-  icon: i-lucide-navigation
-  ---
-  #title
-  Smart Navigation
-
-  #description
-  Auto-generated navigation with ContentNavigation and ContentToc components. Sticky table of contents and prev/next links.
-  :::
-
-  :::u-page-feature
-  ---
-  icon: i-lucide-moon
-  ---
-  #title
-  Dark Mode Ready
-
-  #description
-  Automatic theme switching with smooth transitions. Respects system preferences and remembers user choice.
-  :::
-::
-
-::u-page-section{class="dark:bg-neutral-950"}
-#title
-Enhanced with Nuxt Content
-
-#links
-  :::u-button
-  ---
-  color: neutral
-  size: lg
-  target: _blank
-  to: https://content.nuxt.com/docs/getting-started/installation
-  trailingIcon: i-lucide-arrow-right
-  variant: subtle
-  ---
-  Explore Nuxt Content
-  :::
-
-#features
-  :::u-page-feature
-  ---
-  icon: i-simple-icons-markdown
-  ---
-  #title
-  MDC Enhanced Markdown
-
-  #description
-  Write in Markdown while embedding Vue components. Seamlessly integrate interactive elements in your content.
-  :::
-
-  :::u-page-feature
-  ---
-  icon: i-lucide-file-text
-  ---
-  #title
-  File-based Routing
-
-  #description
-  Organize content in folders and files. Your documentation structure automatically becomes your navigation.
-  :::
-
-  :::u-page-feature
-  ---
-  icon: i-lucide-code
-  ---
-  #title
-  Syntax Highlighting
-
-  #description
-  Beautiful code blocks with language detection, line numbers, and copy buttons. Support for 100+ languages.
+  apps/web、apps/batch、infra、Docs、Layer1-5、責務分離、データフローを整理します。
   :::
 
   :::u-page-feature
   ---
   icon: i-lucide-database
+  to: /design/data-design/dynamodb
   ---
   #title
-  Content Database
+  Data Design
 
   #description
-  Query your content with a MongoDB-like API. Filter, sort, and search through your documentation programmatically.
+  DynamoDB PK/SK、Parquet partition、シグナルスキーマを運用前提で定義します。
   :::
 
   :::u-page-feature
   ---
-  icon: i-lucide-file-code
+  icon: i-lucide-cpu
+  to: /design/batch-analysis/duckdb-vectorbt
   ---
   #title
-  Frontmatter Support
+  Batch Analysis
 
   #description
-  Add metadata to your content files. Define SEO tags, navigation properties, and custom fields.
+  apps/batchのLambda実装、J-Quants取得、S3保存、DuckDB/vectorbt分析、SAM運用を扱います。
   :::
 
   :::u-page-feature
   ---
-  icon: i-lucide-git-branch
+  icon: i-lucide-server
+  to: /design/web-api/nuxt-server-api
   ---
   #title
-  Version Control
+  Web API
 
   #description
-  Content lives in your repository. Branch, review, and deploy documentation alongside your code.
+  Nuxt server/api と apps/batch Python Lambda の境界、表示用API、Amplify実行環境を定義します。
   :::
-::
 
-::u-page-section{class="dark:bg-gradient-to-b from-neutral-950 to-neutral-900"}
-  :::u-page-c-t-a
+  :::u-page-feature
   ---
-  links:
-    - label: Start building
-      to: '/getting-started'
-      trailingIcon: i-lucide-arrow-right
-    - label: View on GitHub
-      to: 'https://github.com/nuxt-ui-templates/docs'
-      target: _blank
-      variant: subtle
-      icon: i-simple-icons-github
-  title: Ready to build an amazing documentation?
-  description: Join thousands of developers building with Nuxt and Nuxt UI. Get this template and start shipping today.
-  class: dark:bg-neutral-950
+  icon: i-lucide-route
+  to: /operations/overview
   ---
+  #title
+  Operations
 
-  :stars-bg
+  #description
+  初期登録、日次運用、週次/月次確認、障害対応をタイミング別に整理します。
+  :::
+
+  :::u-page-feature
+  ---
+  icon: i-lucide-route
+  to: /delivery/development-roadmap
+  ---
+  #title
+  Roadmap
+
+  #description
+  開発済み、現在開発中、将来開発予定のスコープを整理します。
+  :::
+
+  :::u-page-feature
+  ---
+  icon: i-lucide-list-checks
+  to: /delivery/current-scope
+  ---
+  #title
+  Delivery
+
+  #description
+  現在スコープ、完了済みスコープ、タスク仕様、検証ログを設計思想から分けて管理します。
   :::
 ::
