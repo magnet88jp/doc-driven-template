@@ -70,17 +70,24 @@ export default defineNuxtConfig({
     },
     sections: [
       {
-        title: 'Getting Started',
+        title: 'Design',
         contentCollection: 'docs',
         contentFilters: [
-          { field: 'path', operator: 'LIKE', value: '/getting-started%' }
+          { field: 'path', operator: 'LIKE', value: '/design%' }
         ]
       },
       {
-        title: 'Essentials',
+        title: 'Operations',
         contentCollection: 'docs',
         contentFilters: [
-          { field: 'path', operator: 'LIKE', value: '/essentials%' }
+          { field: 'path', operator: 'LIKE', value: '/operations%' }
+        ]
+      },
+      {
+        title: 'Delivery',
+        contentCollection: 'docs',
+        contentFilters: [
+          { field: 'path', operator: 'LIKE', value: '/delivery%' }
         ]
       }
     ]

@@ -7,18 +7,6 @@ const { header } = useAppConfig()
 const route = useRoute()
 
 const showSectionNav = computed(() => route.path !== '/')
-
-const activeNavigation = computed(() => {
-  const items = navigation?.value || []
-  const sectionPath = route.path.startsWith('/delivery')
-    ? '/delivery'
-    : route.path.startsWith('/operations')
-      ? '/operations'
-      : '/design'
-  const section = items.find(item => item.path === sectionPath)
-
-  return section?.children || []
-})
 </script>
 
 <template>

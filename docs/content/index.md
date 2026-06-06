@@ -28,7 +28,7 @@ Document Driven Monorepo
 
   :::u-button
   ---
-  to: /operations/overview
+  to: /operations/getting-started
   color: neutral
   variant: outline
   size: xl
@@ -47,6 +47,16 @@ Document Driven Monorepo
   ---
   開発計画を見る
   :::
+::
+
+::u-page-section
+#title
+Concept Flow
+
+#description
+人間と AI Agent は同じ docs を合意面として読み、理想設計、標準手順、現在スコープを分けてから実装します。
+
+![Document Driven Monorepo Concept Flow](/concept-flow.svg)
 ::
 
 ::u-page-section
@@ -87,7 +97,7 @@ Document Driven Monorepo
   対象 Task
 
   #description
-  `docs/content/delivery/scopes/**/tasks/*.md`
+  `docs/content/delivery/scopes/1.mvp/tasks/*.md`
   :::
 ::
 
@@ -115,7 +125,7 @@ Document Driven Monorepo
   :::u-page-feature
   ---
   icon: i-lucide-route
-  to: /operations/overview
+  to: /operations/getting-started
   ---
   #title
   operations
@@ -168,55 +178,55 @@ Documentation Map
 
   :::u-page-feature
   ---
-  icon: i-lucide-database
-  to: /design/data-design/dynamodb
+  icon: i-lucide-git-branch
+  to: /design/architecture/responsibility-boundary
   ---
   #title
-  Data Design
+  Responsibility Boundary
 
   #description
-  DynamoDB PK/SK、Parquet partition、シグナルスキーマを運用前提で定義します。
+  apps、packages、infra、docs の責務境界と、境界を越える変更の扱いを定義します。
   :::
 
   :::u-page-feature
   ---
-  icon: i-lucide-cpu
-  to: /design/batch-analysis/duckdb-vectorbt
+  icon: i-lucide-file-code-2
+  to: /design/application-design/shared-contracts
   ---
   #title
-  Batch Analysis
+  Shared Contracts
 
   #description
-  apps/batchのLambda実装、J-Quants取得、S3保存、DuckDB/vectorbt分析、SAM運用を扱います。
+  API 入出力、DTO、エラー形式、複数領域で共有する型の置き方を定義します。
   :::
 
   :::u-page-feature
   ---
   icon: i-lucide-server
-  to: /design/web-api/nuxt-server-api
+  to: /design/application-design/server-api
   ---
   #title
-  Web API
+  Server API
 
   #description
-  Nuxt server/api と apps/batch Python Lambda の境界、表示用API、Amplify実行環境を定義します。
+  Nuxt server API の責務、入力検証、レスポンス、エラー形式の境界を定義します。
   :::
 
   :::u-page-feature
   ---
-  icon: i-lucide-route
-  to: /operations/overview
+  icon: i-lucide-play-circle
+  to: /operations/getting-started
   ---
   #title
-  Operations
+  Getting Started
 
   #description
-  初期登録、日次運用、週次/月次確認、障害対応をタイミング別に整理します。
+  docs 配下に設計思想を作成し、実装前の合意面を作る手順です。
   :::
 
   :::u-page-feature
   ---
-  icon: i-lucide-route
+  icon: i-lucide-map
   to: /delivery/development-roadmap
   ---
   #title
