@@ -56,19 +56,7 @@ Concept Flow
 #description
 人間と AI Agent は同じ docs を合意面として読み、理想設計、標準手順、現在スコープを分けてから実装します。
 
-```mermaid
-flowchart LR
-  Human[Human] --> SharedDocs[Shared docs]
-  Agent[AI Agent] --> SharedDocs
-  SharedDocs --> Design[design: ideal architecture and principles]
-  SharedDocs --> Operations[operations: repeatable procedures]
-  SharedDocs --> Delivery[delivery: current scope, gaps, tasks, acceptance criteria]
-  Design --> Delivery
-  Operations --> Delivery
-  Delivery --> Implementation[implementation]
-  Implementation --> Verification[verification and docs update]
-  Verification --> SharedDocs
-```
+![Document Driven Monorepo Concept Flow](/concept-flow.svg)
 ::
 
 ::u-page-section
