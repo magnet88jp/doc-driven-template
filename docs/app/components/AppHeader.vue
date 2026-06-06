@@ -43,6 +43,8 @@ const { header } = useAppConfig()
       </NuxtLink>
 
       <TemplateMenu />
+
+      <DocsSectionNav class="hidden md:flex" />
     </template>
 
     <template #right>
@@ -63,6 +65,8 @@ const { header } = useAppConfig()
     </template>
 
     <template #body>
+      <DocsSectionNav class="mb-4 flex lg:hidden" />
+
       <UContentNavigation
         highlight
         :navigation="navigation"
