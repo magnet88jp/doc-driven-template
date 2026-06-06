@@ -17,11 +17,13 @@ useSeoMeta({
 })
 
 const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs'))
+const { header } = useAppConfig()
+const sidebarNavigation = computed(() => withoutHeaderNavigationItems(navigation.value, header?.navigation))
 const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('docs'), {
   server: false
 })
 
-provide('navigation', navigation)
+provide('navigation', sidebarNavigation)
 </script>
 
 <template>
@@ -35,7 +37,7 @@ provide('navigation', navigation)
     <ClientOnly>
       <LazyUContentSearch
         :files="files"
-        :navigation="navigation"
+        :navigation="sidebarNavigation"
       />
     </ClientOnly>
   </UApp>

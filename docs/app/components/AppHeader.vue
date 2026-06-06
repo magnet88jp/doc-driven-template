@@ -11,10 +11,11 @@ const { header } = useAppConfig()
     :ui="{ center: 'flex-1' }"
     :to="header?.to || '/'"
   >
-    <UContentSearchButton
-      v-if="header?.search"
-      :collapsed="false"
-      class="w-full"
+    <UNavigationMenu
+      v-if="header?.navigation?.length"
+      :items="header.navigation"
+      highlight
+      class="hidden lg:flex"
     />
 
     <template
@@ -48,7 +49,6 @@ const { header } = useAppConfig()
     <template #right>
       <UContentSearchButton
         v-if="header?.search"
-        class="lg:hidden"
       />
 
       <UColorModeButton v-if="header?.colorMode" />
@@ -63,6 +63,13 @@ const { header } = useAppConfig()
     </template>
 
     <template #body>
+      <UNavigationMenu
+        v-if="header?.navigation?.length"
+        :items="header.navigation"
+        orientation="vertical"
+        class="mb-4"
+      />
+
       <UContentNavigation
         highlight
         :navigation="navigation"

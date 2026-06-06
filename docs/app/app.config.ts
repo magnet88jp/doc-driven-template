@@ -24,6 +24,16 @@ export default defineAppConfig({
     },
     search: true,
     colorMode: true,
+    navigation: [{
+      label: '設計思想',
+      to: '/design'
+    }, {
+      label: 'オペレーション',
+      to: '/operation'
+    }, {
+      label: '開発計画',
+      to: '/development-roadmap'
+    }],
     links: [{
       'icon': 'i-simple-icons-github',
       'to': 'https://github.com/nuxt-ui-templates/docs',

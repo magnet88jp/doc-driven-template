@@ -1,7 +1,9 @@
 <script setup lang="ts">
 const { seo } = useAppConfig()
+const { header } = useAppConfig()
 
 const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs'))
+const sidebarNavigation = computed(() => withoutHeaderNavigationItems(navigation.value, header?.navigation))
 const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('docs'), {
   server: false
 })
@@ -24,7 +26,7 @@ useSeoMeta({
   twitterCard: 'summary_large_image'
 })
 
-provide('navigation', navigation)
+provide('navigation', sidebarNavigation)
 </script>
 
 <template>
@@ -44,7 +46,7 @@ provide('navigation', navigation)
     <ClientOnly>
       <LazyUContentSearch
         :files="files"
-        :navigation="navigation"
+        :navigation="sidebarNavigation"
       />
     </ClientOnly>
   </UApp>
