@@ -4,7 +4,7 @@ import type { ContentNavigationItem } from '@nuxt/content'
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 const route = useRoute()
 
-const currentDeliveryScopePath = '/delivery/scopes/risk-regime-layer'
+const currentDeliveryScopePath = '/delivery/scopes/mvp'
 
 const activeNavigation = computed(() => {
   const items = navigation?.value || []

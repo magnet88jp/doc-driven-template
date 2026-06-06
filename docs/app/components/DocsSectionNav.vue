@@ -11,7 +11,7 @@ const sections = [{
   label: 'オペレーション',
   description: 'Runbooks and operational checks',
   icon: 'i-lucide-activity',
-  to: '/operations/overview',
+  to: '/operations/getting-started',
   active: (path: string) => path.startsWith('/operations')
 }, {
   label: '開発計画',
