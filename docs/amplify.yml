@@ -9,7 +9,7 @@ applications:
             - pnpm install --frozen-lockfile
         build:
           commands:
-            - NITRO_PRESET=static pnpm run generate
+            - NODE_OPTIONS=--max-old-space-size=6144 NITRO_PRESET=static pnpm run generate
       artifacts:
         baseDirectory: .output/public
         files:
