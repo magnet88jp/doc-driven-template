@@ -221,7 +221,7 @@ Documentation Map
   Getting Started
 
   #description
-  docs 配下に設計思想を作成し、実装前の合意面を作る手順です。
+  AI Agent と人間が共通理解を作るための最初の会話手順です。
   :::
 
   :::u-page-feature
