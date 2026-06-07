@@ -9,7 +9,7 @@ applications:
             - pnpm install --frozen-lockfile
         build:
           commands:
-            - pnpm run build
+            - NODE_OPTIONS=--max-old-space-size=6144 pnpm run build
       artifacts:
         baseDirectory: .amplify-hosting
         files:
