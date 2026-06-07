@@ -23,7 +23,10 @@ export default defineNuxtConfig({
   eslint: {
     config: {
       stylistic: {
-        commaDangle: 'never',
+        indent: 2,
+        semi: false,
+        quotes: 'single',
+        commaDangle: 'always-multiline',
         braceStyle: '1tbs'
       }
     }
