@@ -1,0 +1,19 @@
+version: 1
+applications:
+  - appRoot: docs
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - corepack enable
+            - pnpm install --frozen-lockfile
+        build:
+          commands:
+            - NITRO_PRESET=static pnpm run generate
+      artifacts:
+        baseDirectory: .output/public
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
