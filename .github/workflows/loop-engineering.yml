@@ -1,0 +1,44 @@
+name: Loop Engineering
+
+on:
+  push:
+    paths:
+      - 'docs/**/*.md'
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  l1-report:
+    name: L1 report
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_EVENT_BEFORE: ${{ github.event.before }}
+      LOOP_BUDGET_USD: '10'
+      LOOP_ESTIMATED_COST_USD: '0'
+      LOOP_MAX_ATTEMPTS: '3'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run L1 report
+        run: node scripts/loop-l1-report.mjs
+
+      - name: Commit STATE update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add STATE.md
+          git diff --cached --quiet || git commit -m "chore(loop): append L1 report"
+          git diff --cached --quiet || exit 1
+          git push

@@ -2,6 +2,7 @@
   "name": "doc-driven-template",
   "private": true,
   "scripts": {
+    "loop:l1": "node scripts/loop-l1-report.mjs",
     "web:dev": "pnpm --dir apps/web dev",
     "web:build": "pnpm --dir apps/web build",
     "web:preview": "pnpm --dir apps/web preview",
