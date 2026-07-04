@@ -28,6 +28,8 @@ Current readiness: 11/25. L2 promotion requires 20/25, three useful L1 runs, and
 
 | ID | Stage | Approval | Attempts | Source Docs | Impact Area | Maker Action | Verifier Evidence |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
+| local-20260704130051-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| local-20260704130051-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/10.mvp-10-harness-pr-brief-generation.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28706681490-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28706681490-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/06.mvp-06-todo-dynamodb-l3-validation.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28706681490-03 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/07.mvp-07-sam-dynamodb-provisioning.md` | delivery scope | Decide whether to promote to L2 | Pending |
@@ -1072,6 +1074,35 @@ No implementation files were changed. The loop stopped before Maker implementati
 - gha-28706681490-03: docs/content/delivery/scopes/1.mvp/tasks/07.mvp-07-sam-dynamodb-provisioning.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
 - gha-28706681490-04: docs/content/delivery/scopes/1.mvp/tasks/08.mvp-08-web-todo-dynamodb-integration.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
 - gha-28706681490-05: docs/content/operations/9.environment-info.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
+
+#### Next Gate
+
+- L2 can start only after a human marks one candidate as approved.
+- Verifier evidence is required before any item moves to resolved.
+
+### local-20260704130051
+
+- Timestamp: 2026-07-04T13:00:51.357Z
+- Mode: L1 impact analysis
+- Trigger: local
+- Branch: feature/work0704-4
+- HEAD: 2d5b58a
+- Changed docs: 2
+- Budget cap: $10/run
+- Estimated cost: $0
+- Max attempts: 3
+
+#### Candidate Items
+
+| ID | Stage | Approval | Attempts | Source Docs | Impact Area | Maker Action | Verifier Evidence |
+| --- | --- | --- | ---: | --- | --- | --- | --- |
+| local-20260704130051-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| local-20260704130051-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/10.mvp-10-harness-pr-brief-generation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+
+#### Impact Analysis
+
+- local-20260704130051-01: docs/content/delivery/scopes/1.mvp/2.task-list.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- local-20260704130051-02: docs/content/delivery/scopes/1.mvp/tasks/10.mvp-10-harness-pr-brief-generation.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
 
 #### Next Gate
 
