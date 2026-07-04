@@ -28,6 +28,8 @@ Current readiness: 11/25. L2 promotion requires 20/25, three useful L1 runs, and
 
 | ID | Stage | Approval | Attempts | Source Docs | Impact Area | Maker Action | Verifier Evidence |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
+| gha-28707109809-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28707109809-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/10.mvp-10-harness-pr-brief-generation.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28707066749-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/1.development-roadmap.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28707066749-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/2.current-scope.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28707066749-03 | L1_ANALYZED | required | 0 | `docs/content/delivery/3.implementation-flow.md` | delivery scope | Decide whether to promote to L2 | Pending |
@@ -1251,6 +1253,35 @@ No implementation files were changed. The loop stopped before Maker implementati
 - gha-28707066749-39: docs/content/operations/7.monthly.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
 - gha-28707066749-40: docs/content/operations/8.ad-hoc.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
 - gha-28707066749-41: docs/content/operations/9.environment-info.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
+
+#### Next Gate
+
+- L2 can start only after a human marks one candidate as approved.
+- Verifier evidence is required before any item moves to resolved.
+
+### gha-28707109809
+
+- Timestamp: 2026-07-04T13:04:19.912Z
+- Mode: L1 impact analysis
+- Trigger: push
+- Branch: main
+- HEAD: 2ae02c8
+- Changed docs: 2
+- Budget cap: $10/run
+- Estimated cost: $0
+- Max attempts: 3
+
+#### Candidate Items
+
+| ID | Stage | Approval | Attempts | Source Docs | Impact Area | Maker Action | Verifier Evidence |
+| --- | --- | --- | ---: | --- | --- | --- | --- |
+| gha-28707109809-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28707109809-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/10.mvp-10-harness-pr-brief-generation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+
+#### Impact Analysis
+
+- gha-28707109809-01: docs/content/delivery/scopes/1.mvp/2.task-list.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-28707109809-02: docs/content/delivery/scopes/1.mvp/tasks/10.mvp-10-harness-pr-brief-generation.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
 
 #### Next Gate
 
