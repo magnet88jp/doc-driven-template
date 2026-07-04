@@ -10,7 +10,7 @@ function formatCurrency(value: number): string {
   return value.toLocaleString('en-US', {
     style: 'currency',
     currency: 'USD',
-    maximumFractionDigits: 0
+    maximumFractionDigits: 0,
   })
 }
 
@@ -20,14 +20,14 @@ const baseStats = [{
   minValue: 400,
   maxValue: 1000,
   minVariation: -15,
-  maxVariation: 25
+  maxVariation: 25,
 }, {
   title: 'Conversions',
   icon: 'i-lucide-chart-pie',
   minValue: 1000,
   maxValue: 2000,
   minVariation: -10,
-  maxVariation: 20
+  maxVariation: 20,
 }, {
   title: 'Revenue',
   icon: 'i-lucide-circle-dollar-sign',
@@ -35,14 +35,14 @@ const baseStats = [{
   maxValue: 500000,
   minVariation: -20,
   maxVariation: 30,
-  formatter: formatCurrency
+  formatter: formatCurrency,
 }, {
   title: 'Orders',
   icon: 'i-lucide-shopping-cart',
   minValue: 100,
   maxValue: 300,
   minVariation: -5,
-  maxVariation: 15
+  maxVariation: 15,
 }]
 
 const { data: stats } = await useAsyncData<Stat[]>('stats', async () => {
@@ -54,12 +54,12 @@ const { data: stats } = await useAsyncData<Stat[]>('stats', async () => {
       title: stat.title,
       icon: stat.icon,
       value: stat.formatter ? stat.formatter(value) : value,
-      variation
+      variation,
     }
   })
 }, {
   watch: [() => props.period, () => props.range],
-  default: () => []
+  default: () => [],
 })
 </script>
 
@@ -76,7 +76,7 @@ const { data: stats } = await useAsyncData<Stat[]>('stats', async () => {
         container: 'gap-y-1.5',
         wrapper: 'items-start',
         leading: 'p-2.5 rounded-full bg-primary/10 ring ring-inset ring-primary/25 flex-col',
-        title: 'font-normal text-muted text-xs uppercase'
+        title: 'font-normal text-muted text-xs uppercase',
       }"
       class="lg:rounded-none first:rounded-l-lg last:rounded-r-lg hover:z-1"
     >

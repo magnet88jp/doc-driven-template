@@ -10,16 +10,16 @@ const emits = defineEmits(['close'])
 
 const dropdownItems = [[{
   label: 'Mark as unread',
-  icon: 'i-lucide-check-circle'
+  icon: 'i-lucide-check-circle',
 }, {
   label: 'Mark as important',
-  icon: 'i-lucide-triangle-alert'
+  icon: 'i-lucide-triangle-alert',
 }], [{
   label: 'Star thread',
-  icon: 'i-lucide-star'
+  icon: 'i-lucide-star',
 }, {
   label: 'Mute thread',
-  icon: 'i-lucide-circle-pause'
+  icon: 'i-lucide-circle-pause',
 }]]
 
 const toast = useToast()
@@ -37,7 +37,7 @@ function onSubmit() {
       title: 'Email sent',
       description: 'Your email has been sent successfully',
       icon: 'i-lucide-check-circle',
-      color: 'success'
+      color: 'success',
     })
 
     loading.value = false

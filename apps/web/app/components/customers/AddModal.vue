@@ -4,7 +4,7 @@ import type { FormSubmitEvent } from '@nuxt/ui'
 
 const schema = z.object({
   name: z.string().min(2, 'Too short'),
-  email: z.string().email('Invalid email')
+  email: z.string().email('Invalid email'),
 })
 const open = ref(false)
 
@@ -12,7 +12,7 @@ type Schema = z.output<typeof schema>
 
 const state = reactive<Partial<Schema>>({
   name: '',
-  email: ''
+  email: '',
 })
 
 const toast = useToast()

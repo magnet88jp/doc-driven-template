@@ -15,24 +15,24 @@ const user = ref({
   name: 'Benjamin Canac',
   avatar: {
     src: 'https://github.com/benjamincanac.png',
-    alt: 'Benjamin Canac'
-  }
+    alt: 'Benjamin Canac',
+  },
 })
 
 const items = computed<DropdownMenuItem[][]>(() => ([[{
   type: 'label',
   label: user.value.name,
-  avatar: user.value.avatar
+  avatar: user.value.avatar,
 }], [{
   label: 'Profile',
-  icon: 'i-lucide-user'
+  icon: 'i-lucide-user',
 }, {
   label: 'Billing',
-  icon: 'i-lucide-credit-card'
+  icon: 'i-lucide-credit-card',
 }, {
   label: 'Settings',
   icon: 'i-lucide-settings',
-  to: '/settings'
+  to: '/settings',
 }], [{
   label: 'Theme',
   icon: 'i-lucide-palette',
@@ -42,7 +42,7 @@ const items = computed<DropdownMenuItem[][]>(() => ([[{
     chip: appConfig.ui.colors.primary,
     content: {
       align: 'center',
-      collisionPadding: 16
+      collisionPadding: 16,
     },
     children: colors.map(color => ({
       label: color,
@@ -54,15 +54,15 @@ const items = computed<DropdownMenuItem[][]>(() => ([[{
         e.preventDefault()
 
         appConfig.ui.colors.primary = color
-      }
-    }))
+      },
+    })),
   }, {
     label: 'Neutral',
     slot: 'chip',
     chip: appConfig.ui.colors.neutral === 'neutral' ? 'old-neutral' : appConfig.ui.colors.neutral,
     content: {
       align: 'end',
-      collisionPadding: 16
+      collisionPadding: 16,
     },
     children: neutrals.map(color => ({
       label: color,
@@ -74,9 +74,9 @@ const items = computed<DropdownMenuItem[][]>(() => ([[{
         e.preventDefault()
 
         appConfig.ui.colors.neutral = color
-      }
-    }))
-  }]
+      },
+    })),
+  }],
 }, {
   label: 'Appearance',
   icon: 'i-lucide-sun-moon',
@@ -89,7 +89,7 @@ const items = computed<DropdownMenuItem[][]>(() => ([[{
       e.preventDefault()
 
       colorMode.preference = 'light'
-    }
+    },
   }, {
     label: 'Dark',
     icon: 'i-lucide-moon',
@@ -102,52 +102,52 @@ const items = computed<DropdownMenuItem[][]>(() => ([[{
     },
     onSelect(e: Event) {
       e.preventDefault()
-    }
-  }]
+    },
+  }],
 }], [{
   label: 'Templates',
   icon: 'i-lucide-layout-template',
   children: [{
     label: 'Starter',
-    to: 'https://starter-template.nuxt.dev/'
+    to: 'https://starter-template.nuxt.dev/',
   }, {
     label: 'Landing',
-    to: 'https://landing-template.nuxt.dev/'
+    to: 'https://landing-template.nuxt.dev/',
   }, {
     label: 'Docs',
-    to: 'https://docs-template.nuxt.dev/'
+    to: 'https://docs-template.nuxt.dev/',
   }, {
     label: 'SaaS',
-    to: 'https://saas-template.nuxt.dev/'
+    to: 'https://saas-template.nuxt.dev/',
   }, {
     label: 'Dashboard',
     to: 'https://dashboard-template.nuxt.dev/',
     color: 'primary',
     checked: true,
-    type: 'checkbox'
+    type: 'checkbox',
   }, {
     label: 'Chat',
-    to: 'https://chat-template.nuxt.dev/'
+    to: 'https://chat-template.nuxt.dev/',
   }, {
     label: 'Portfolio',
-    to: 'https://portfolio-template.nuxt.dev/'
+    to: 'https://portfolio-template.nuxt.dev/',
   }, {
     label: 'Changelog',
-    to: 'https://changelog-template.nuxt.dev/'
-  }]
+    to: 'https://changelog-template.nuxt.dev/',
+  }],
 }], [{
   label: 'Documentation',
   icon: 'i-lucide-book-open',
   to: 'https://ui.nuxt.com/docs/getting-started/installation/nuxt',
-  target: '_blank'
+  target: '_blank',
 }, {
   label: 'GitHub repository',
   icon: 'i-simple-icons-github',
   to: 'https://github.com/nuxt-ui-templates/dashboard',
-  target: '_blank'
+  target: '_blank',
 }, {
   label: 'Log out',
-  icon: 'i-lucide-log-out'
+  icon: 'i-lucide-log-out',
 }]]))
 </script>
 
@@ -161,7 +161,7 @@ const items = computed<DropdownMenuItem[][]>(() => ([[{
       v-bind="{
         ...user,
         label: collapsed ? undefined : user?.name,
-        trailingIcon: collapsed ? undefined : 'i-lucide-chevrons-up-down'
+        trailingIcon: collapsed ? undefined : 'i-lucide-chevrons-up-down',
       }"
       color="neutral"
       variant="ghost"
@@ -169,7 +169,7 @@ const items = computed<DropdownMenuItem[][]>(() => ([[{
       :square="collapsed"
       class="data-[state=open]:bg-elevated"
       :ui="{
-        trailingIcon: 'text-dimmed'
+        trailingIcon: 'text-dimmed',
       }"
     />
 
@@ -179,7 +179,7 @@ const items = computed<DropdownMenuItem[][]>(() => ([[{
           class="rounded-full ring ring-bg bg-(--chip-light) dark:bg-(--chip-dark) size-2"
           :style="{
             '--chip-light': `var(--color-${(item as any).chip}-500)`,
-            '--chip-dark': `var(--color-${(item as any).chip}-400)`
+            '--chip-dark': `var(--color-${(item as any).chip}-400)`,
           }"
         />
       </div>
