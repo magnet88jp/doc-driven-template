@@ -7,6 +7,7 @@ const { header } = useAppConfig()
 const route = useRoute()
 
 const showSectionNav = computed(() => route.path !== '/')
+const headerLinks = computed(() => (header?.links || []) as Record<string, unknown>[])
 </script>
 
 <template>
@@ -57,9 +58,9 @@ const showSectionNav = computed(() => route.path !== '/')
 
         <UColorModeButton v-if="header?.colorMode" />
 
-        <template v-if="header?.links">
+        <template v-if="headerLinks.length">
           <UButton
-            v-for="(link, index) of header.links"
+            v-for="(link, index) of headerLinks"
             :key="index"
             v-bind="{ color: 'neutral', variant: 'ghost', ...link }"
           />

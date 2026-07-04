@@ -35,6 +35,7 @@ export default defineAppConfig({
     title: 'Table of Contents',
     bottom: {
       title: 'Read Next',
+      edit: '',
       links: [{
         icon: 'i-lucide-play-circle',
         label: 'Getting Started',

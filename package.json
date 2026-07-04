@@ -2,6 +2,12 @@
   "name": "doc-driven-template",
   "private": true,
   "scripts": {
+    "loop:l1": "node scripts/loop-harness.mjs l1",
+    "loop:l2": "node scripts/loop-harness.mjs l2",
+    "loop:l3": "node scripts/loop-harness.mjs l3",
+    "loop:verify:docs": "node scripts/loop-harness.mjs verify:docs",
+    "loop:verify:web": "node scripts/loop-harness.mjs verify:web",
+    "loop:verify:harness": "node scripts/loop-harness.mjs verify:harness",
     "web:dev": "pnpm --dir apps/web dev",
     "web:build": "pnpm --dir apps/web build",
     "web:preview": "pnpm --dir apps/web preview",
