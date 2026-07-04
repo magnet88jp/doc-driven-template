@@ -28,6 +28,8 @@ Current readiness: 11/25. L2 promotion requires 20/25, three useful L1 runs, and
 
 | ID | Stage | Approval | Attempts | Source Docs | Impact Area | Maker Action | Verifier Evidence |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
+| local-20260704112323-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| local-20260704112323-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/05.mvp-05-todo-list-l2-validation.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28703968285-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/1.development-roadmap.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28703968285-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/2.current-scope.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28703968285-03 | L1_ANALYZED | required | 0 | `docs/content/delivery/3.implementation-flow.md` | delivery scope | Decide whether to promote to L2 | Pending |
@@ -448,4 +450,53 @@ New loop runs append entries below this line.
 
 - L2 can start only after a human marks one candidate as approved.
 - Verifier evidence is required before any item moves to resolved.
+
+### local-20260704112323
+
+- Timestamp: 2026-07-04T11:23:23.420Z
+- Mode: L1 impact analysis
+- Trigger: local
+- Branch: feature/work0704-2
+- HEAD: 361890b
+- Changed docs: 2
+- Budget cap: $10/run
+- Estimated cost: $0
+- Max attempts: 3
+
+#### Candidate Items
+
+| ID | Stage | Approval | Attempts | Source Docs | Impact Area | Maker Action | Verifier Evidence |
+| --- | --- | --- | ---: | --- | --- | --- | --- |
+| local-20260704112323-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| local-20260704112323-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/05.mvp-05-todo-list-l2-validation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+
+#### Impact Analysis
+
+- local-20260704112323-01: docs/content/delivery/scopes/1.mvp/2.task-list.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- local-20260704112323-02: docs/content/delivery/scopes/1.mvp/tasks/05.mvp-05-todo-list-l2-validation.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+
+#### Next Gate
+
+- L2 can start only after a human marks one candidate as approved.
+- Verifier evidence is required before any item moves to resolved.
+
+### local-20260704112545-l2
+
+- Timestamp: 2026-07-04T11:25:45.973Z
+- Mode: L2 gate
+- Result: ready
+- Approved item: local-20260704112323-02
+- Next action: maker may implement within the approved scope and verifier must record command evidence.
+
+### local-20260704113642-verify-web
+
+- Timestamp: 2026-07-04T11:36:42.696Z
+- Mode: verifier:web
+
+#### Evidence
+
+| ID | Command | Result | Evidence |
+| --- | --- | --- | --- |
+| manual | `pnpm --dir apps/web typecheck` | pass | exit 0 |
+| manual | `pnpm --dir apps/web lint` | pass | exit 0 |
 

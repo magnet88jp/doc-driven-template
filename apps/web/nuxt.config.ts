@@ -3,19 +3,19 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
     '@nuxt/ui',
-    '@vueuse/nuxt'
+    '@vueuse/nuxt',
   ],
 
   devtools: {
-    enabled: true
+    enabled: true,
   },
 
   css: ['~/assets/css/main.css'],
 
   routeRules: {
     '/api/**': {
-      cors: true
-    }
+      cors: true,
+    },
   },
 
   compatibilityDate: '2024-07-11',
@@ -27,8 +27,8 @@ export default defineNuxtConfig({
         semi: false,
         quotes: 'single',
         commaDangle: 'always-multiline',
-        braceStyle: '1tbs'
-      }
-    }
-  }
+        braceStyle: '1tbs',
+      },
+    },
+  },
 })
