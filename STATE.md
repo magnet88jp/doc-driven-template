@@ -28,6 +28,20 @@ Current readiness: 11/25. L2 promotion requires 20/25, three useful L1 runs, and
 
 | ID | Stage | Approval | Attempts | Source Docs | Impact Area | Maker Action | Verifier Evidence |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
+| gha-28703968285-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/1.development-roadmap.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28703968285-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/2.current-scope.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28703968285-03 | L1_ANALYZED | required | 0 | `docs/content/delivery/3.implementation-flow.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28703968285-04 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28703968285-05 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/3.acceptance-criteria.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28703968285-06 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/04.mvp-04-loop-engineering-pipeline.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28703968285-07 | L1_ANALYZED | required | 0 | `docs/content/design/1.overview/4.documentation-governance.md` | design | Decide whether to promote to L2 | Pending |
+| gha-28703968285-08 | L1_ANALYZED | required | 0 | `docs/content/design/4.loop-engineering/1.overall-architecture.md` | loop engineering design | Decide whether to promote to L2 | Pending |
+| gha-28703968285-09 | L1_ANALYZED | required | 0 | `docs/content/design/4.loop-engineering/2.harness-design.md` | loop engineering design | Decide whether to promote to L2 | Pending |
+| gha-28703968285-10 | L1_ANALYZED | required | 0 | `docs/content/design/4.loop-engineering/3.autonomy-tiers.md` | loop engineering design | Decide whether to promote to L2 | Pending |
+| gha-28703968285-11 | L1_ANALYZED | required | 0 | `docs/content/design/4.loop-engineering/4.maker-verifier.md` | loop engineering design | Decide whether to promote to L2 | Pending |
+| gha-28703968285-12 | L1_ANALYZED | required | 0 | `docs/content/maintenance/1.state-management.md` | maintenance | Decide whether to promote to L2 | Pending |
+| gha-28703968285-13 | L1_ANALYZED | required | 0 | `docs/content/maintenance/2.pr-automation.md` | maintenance | Decide whether to promote to L2 | Pending |
+| gha-28703968285-14 | L1_ANALYZED | required | 0 | `docs/content/operations/10.loop-engineering.md` | operations | Decide whether to promote to L2 | Pending |
 | gha-28703935941-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/1.development-roadmap.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28703935941-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/2.current-scope.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28703935941-03 | L1_ANALYZED | required | 0 | `docs/content/delivery/3.implementation-flow.md` | delivery scope | Decide whether to promote to L2 | Pending |
@@ -376,6 +390,59 @@ New loop runs append entries below this line.
 - gha-28703935941-34: docs/content/operations/7.monthly.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
 - gha-28703935941-35: docs/content/operations/8.ad-hoc.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
 - gha-28703935941-36: docs/content/operations/9.environment-info.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
+
+#### Next Gate
+
+- L2 can start only after a human marks one candidate as approved.
+- Verifier evidence is required before any item moves to resolved.
+
+### gha-28703968285
+
+- Timestamp: 2026-07-04T10:55:55.187Z
+- Mode: L1 impact analysis
+- Trigger: push
+- Branch: main
+- HEAD: e2fb169
+- Changed docs: 14
+- Budget cap: $10/run
+- Estimated cost: $0
+- Max attempts: 3
+
+#### Candidate Items
+
+| ID | Stage | Approval | Attempts | Source Docs | Impact Area | Maker Action | Verifier Evidence |
+| --- | --- | --- | ---: | --- | --- | --- | --- |
+| gha-28703968285-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/1.development-roadmap.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28703968285-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/2.current-scope.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28703968285-03 | L1_ANALYZED | required | 0 | `docs/content/delivery/3.implementation-flow.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28703968285-04 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28703968285-05 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/3.acceptance-criteria.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28703968285-06 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/04.mvp-04-loop-engineering-pipeline.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28703968285-07 | L1_ANALYZED | required | 0 | `docs/content/design/1.overview/4.documentation-governance.md` | design | Decide whether to promote to L2 | Pending |
+| gha-28703968285-08 | L1_ANALYZED | required | 0 | `docs/content/design/4.loop-engineering/1.overall-architecture.md` | loop engineering design | Decide whether to promote to L2 | Pending |
+| gha-28703968285-09 | L1_ANALYZED | required | 0 | `docs/content/design/4.loop-engineering/2.harness-design.md` | loop engineering design | Decide whether to promote to L2 | Pending |
+| gha-28703968285-10 | L1_ANALYZED | required | 0 | `docs/content/design/4.loop-engineering/3.autonomy-tiers.md` | loop engineering design | Decide whether to promote to L2 | Pending |
+| gha-28703968285-11 | L1_ANALYZED | required | 0 | `docs/content/design/4.loop-engineering/4.maker-verifier.md` | loop engineering design | Decide whether to promote to L2 | Pending |
+| gha-28703968285-12 | L1_ANALYZED | required | 0 | `docs/content/maintenance/1.state-management.md` | maintenance | Decide whether to promote to L2 | Pending |
+| gha-28703968285-13 | L1_ANALYZED | required | 0 | `docs/content/maintenance/2.pr-automation.md` | maintenance | Decide whether to promote to L2 | Pending |
+| gha-28703968285-14 | L1_ANALYZED | required | 0 | `docs/content/operations/10.loop-engineering.md` | operations | Decide whether to promote to L2 | Pending |
+
+#### Impact Analysis
+
+- gha-28703968285-01: docs/content/delivery/1.development-roadmap.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-28703968285-02: docs/content/delivery/2.current-scope.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-28703968285-03: docs/content/delivery/3.implementation-flow.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-28703968285-04: docs/content/delivery/scopes/1.mvp/2.task-list.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-28703968285-05: docs/content/delivery/scopes/1.mvp/3.acceptance-criteria.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-28703968285-06: docs/content/delivery/scopes/1.mvp/tasks/04.mvp-04-loop-engineering-pipeline.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-28703968285-07: docs/content/design/1.overview/4.documentation-governance.md: design; likely implementation: implementation area named by the design page; suggested checks: affected package lint/typecheck/build
+- gha-28703968285-08: docs/content/design/4.loop-engineering/1.overall-architecture.md: loop engineering design; likely implementation: `scripts/loop-harness.mjs`, `STATE.md`, `LOOP.md`, `.github/workflows/`; suggested checks: `node --check scripts/loop-harness.mjs`, `pnpm loop:l1`
+- gha-28703968285-09: docs/content/design/4.loop-engineering/2.harness-design.md: loop engineering design; likely implementation: `scripts/loop-harness.mjs`, `STATE.md`, `LOOP.md`, `.github/workflows/`; suggested checks: `node --check scripts/loop-harness.mjs`, `pnpm loop:l1`
+- gha-28703968285-10: docs/content/design/4.loop-engineering/3.autonomy-tiers.md: loop engineering design; likely implementation: `scripts/loop-harness.mjs`, `STATE.md`, `LOOP.md`, `.github/workflows/`; suggested checks: `node --check scripts/loop-harness.mjs`, `pnpm loop:l1`
+- gha-28703968285-11: docs/content/design/4.loop-engineering/4.maker-verifier.md: loop engineering design; likely implementation: `scripts/loop-harness.mjs`, `STATE.md`, `LOOP.md`, `.github/workflows/`; suggested checks: `node --check scripts/loop-harness.mjs`, `pnpm loop:l1`
+- gha-28703968285-12: docs/content/maintenance/1.state-management.md: maintenance; likely implementation: `STATE.md`, verifier records, PR lifecycle metadata; suggested checks: harness state inspection plus relevant command evidence
+- gha-28703968285-13: docs/content/maintenance/2.pr-automation.md: maintenance; likely implementation: `STATE.md`, verifier records, PR lifecycle metadata; suggested checks: harness state inspection plus relevant command evidence
+- gha-28703968285-14: docs/content/operations/10.loop-engineering.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
 
 #### Next Gate
 
