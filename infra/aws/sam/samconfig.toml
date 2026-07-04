@@ -1,0 +1,13 @@
+version = 0.1
+
+[default.deploy.parameters]
+stack_name = "doc-driven-template"
+resolve_s3 = true
+s3_prefix = "doc-driven-template"
+region = "ap-northeast-1"
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "EnvironmentName=\"dev\""
+image_repositories = []
+
+[default.global.parameters]
+region = "ap-northeast-1"

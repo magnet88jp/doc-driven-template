@@ -1,16 +1,14 @@
 <script setup lang="ts">
-type TodoFilter = 'all' | 'active' | 'completed'
+import type { Todo } from '~/types'
 
-interface Todo {
-  id: number
-  title: string
-  completed: boolean
-}
+type TodoFilter = 'all' | 'active' | 'completed'
 
 const newTodoTitle = ref('')
 const todos = ref<Todo[]>([])
 const selectedFilter = ref<TodoFilter>('all')
-const nextTodoId = ref(1)
+const isLoading = ref(true)
+const errorMessage = ref('')
+const pendingAction = ref<string | null>(null)
 
 const filterItems = [{
   label: 'All',
@@ -38,32 +36,95 @@ const filteredTodos = computed(() => {
   return todos.value
 })
 
-function addTodo() {
+async function loadTodos() {
+  isLoading.value = true
+  errorMessage.value = ''
+
+  try {
+    todos.value = await $fetch<Todo[]>('/api/todos')
+  } catch (error) {
+    errorMessage.value = getTodoErrorMessage(error)
+  } finally {
+    isLoading.value = false
+  }
+}
+
+async function addTodo() {
   const title = newTodoTitle.value.trim()
 
   if (!title) {
     return
   }
 
-  todos.value.unshift({
-    id: nextTodoId.value++,
-    title,
-    completed: false,
-  })
-  newTodoTitle.value = ''
-}
+  pendingAction.value = 'add'
+  errorMessage.value = ''
 
-function setTodoCompleted(todoId: number, completed: boolean) {
-  const todo = todos.value.find(item => item.id === todoId)
+  try {
+    const todo = await $fetch<Todo>('/api/todos', {
+      method: 'POST',
+      body: {
+        title,
+      },
+    })
 
-  if (todo) {
-    todo.completed = completed
+    todos.value = [todo, ...todos.value]
+    newTodoTitle.value = ''
+  } catch (error) {
+    errorMessage.value = getTodoErrorMessage(error)
+  } finally {
+    pendingAction.value = null
   }
 }
 
-function removeTodo(todoId: number) {
-  todos.value = todos.value.filter(todo => todo.id !== todoId)
+async function setTodoCompleted(todoId: string, completed: boolean) {
+  pendingAction.value = todoId
+  errorMessage.value = ''
+
+  try {
+    const todo = await $fetch<Todo>(`/api/todos/${todoId}`, {
+      method: 'PATCH',
+      body: {
+        completed,
+      },
+    })
+
+    todos.value = todos.value.map(item => item.id === todo.id ? todo : item)
+  } catch (error) {
+    errorMessage.value = getTodoErrorMessage(error)
+  } finally {
+    pendingAction.value = null
+  }
 }
+
+async function removeTodo(todoId: string) {
+  pendingAction.value = todoId
+  errorMessage.value = ''
+
+  try {
+    await $fetch(`/api/todos/${todoId}`, {
+      method: 'DELETE',
+    })
+
+    todos.value = todos.value.filter(todo => todo.id !== todoId)
+  } catch (error) {
+    errorMessage.value = getTodoErrorMessage(error)
+  } finally {
+    pendingAction.value = null
+  }
+}
+
+function getTodoErrorMessage(error: unknown) {
+  if (typeof error === 'object' && error && 'data' in error) {
+    const data = (error as { data?: { message?: string, statusMessage?: string } }).data
+    return data?.message || data?.statusMessage || 'Unable to update todos.'
+  }
+
+  return 'Unable to update todos.'
+}
+
+onMounted(() => {
+  loadTodos()
+})
 </script>
 
 <template>
@@ -95,10 +156,26 @@ function removeTodo(todoId: number) {
             type="submit"
             icon="i-lucide-plus"
             label="Add"
-            :disabled="!newTodoTitle.trim()"
+            :loading="pendingAction === 'add'"
+            :disabled="!newTodoTitle.trim() || isLoading"
             class="justify-center sm:w-auto"
           />
         </form>
+
+        <UAlert
+          v-if="errorMessage"
+          color="error"
+          variant="subtle"
+          icon="i-lucide-circle-alert"
+          title="Todo sync failed"
+          :description="errorMessage"
+          :actions="[{
+            label: 'Retry',
+            color: 'error',
+            variant: 'soft',
+            onClick: loadTodos,
+          }]"
+        />
 
         <div class="grid gap-3 sm:grid-cols-2">
           <div class="rounded-lg border border-default bg-muted/30 p-4">
@@ -136,7 +213,17 @@ function removeTodo(todoId: number) {
           </p>
         </div>
 
-        <div v-if="filteredTodos.length" class="divide-y divide-default rounded-lg border border-default">
+        <div v-if="isLoading" class="rounded-lg border border-default px-4 py-12 text-center">
+          <UIcon name="i-lucide-loader-circle" class="mx-auto size-10 animate-spin text-dimmed" />
+          <p class="mt-3 text-sm font-medium text-highlighted">
+            Loading todos
+          </p>
+          <p class="mt-1 text-sm text-muted">
+            Fetching the latest list from the server.
+          </p>
+        </div>
+
+        <div v-else-if="filteredTodos.length" class="divide-y divide-default rounded-lg border border-default">
           <div
             v-for="todo in filteredTodos"
             :key="todo.id"
@@ -145,6 +232,7 @@ function removeTodo(todoId: number) {
             <UCheckbox
               :model-value="todo.completed"
               :aria-label="todo.completed ? 'Mark todo as active' : 'Mark todo as completed'"
+              :disabled="pendingAction === todo.id"
               class="mt-0.5"
               @update:model-value="setTodoCompleted(todo.id, $event === true)"
             />
@@ -163,6 +251,8 @@ function removeTodo(todoId: number) {
                 icon="i-lucide-trash-2"
                 square
                 aria-label="Delete todo"
+                :loading="pendingAction === todo.id"
+                :disabled="pendingAction === todo.id"
                 @click="removeTodo(todo.id)"
               />
             </UTooltip>

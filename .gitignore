@@ -1,0 +1,4 @@
+node_modules/
+.pnpm-store/
+.aws-sam/
+pnpm-lock.yaml

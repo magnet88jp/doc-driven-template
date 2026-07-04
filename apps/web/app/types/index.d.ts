@@ -52,6 +52,14 @@ export interface Notification {
   date: string
 }
 
+export interface Todo {
+  id: string
+  title: string
+  completed: boolean
+  createdAt: string
+  updatedAt: string
+}
+
 export type Period = 'daily' | 'weekly' | 'monthly'
 
 export interface Range {
