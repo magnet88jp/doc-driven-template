@@ -28,6 +28,9 @@ Current readiness: 11/25. L2 promotion requires 20/25, three useful L1 runs, and
 
 | ID | Stage | Approval | Attempts | Source Docs | Impact Area | Maker Action | Verifier Evidence |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
+| local-20260704131247-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| local-20260704131247-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/09.mvp-09-docs-only-loop-operation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| local-20260704131247-03 | L1_ANALYZED | required | 0 | `docs/content/operations/3.documentation.md` | operations | Decide whether to promote to L2 | Pending |
 | local-20260704130051-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | local-20260704130051-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/10.mvp-10-harness-pr-brief-generation.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28706681490-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
@@ -1103,6 +1106,37 @@ No implementation files were changed. The loop stopped before Maker implementati
 
 - local-20260704130051-01: docs/content/delivery/scopes/1.mvp/2.task-list.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
 - local-20260704130051-02: docs/content/delivery/scopes/1.mvp/tasks/10.mvp-10-harness-pr-brief-generation.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+
+#### Next Gate
+
+- L2 can start only after a human marks one candidate as approved.
+- Verifier evidence is required before any item moves to resolved.
+
+### local-20260704131247
+
+- Timestamp: 2026-07-04T13:12:47.905Z
+- Mode: L1 impact analysis
+- Trigger: local
+- Branch: feature/work0704-4
+- HEAD: 515dccd
+- Changed docs: 3
+- Budget cap: $10/run
+- Estimated cost: $0
+- Max attempts: 3
+
+#### Candidate Items
+
+| ID | Stage | Approval | Attempts | Source Docs | Impact Area | Maker Action | Verifier Evidence |
+| --- | --- | --- | ---: | --- | --- | --- | --- |
+| local-20260704131247-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| local-20260704131247-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/09.mvp-09-docs-only-loop-operation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| local-20260704131247-03 | L1_ANALYZED | required | 0 | `docs/content/operations/3.documentation.md` | operations | Decide whether to promote to L2 | Pending |
+
+#### Impact Analysis
+
+- local-20260704131247-01: docs/content/delivery/scopes/1.mvp/2.task-list.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- local-20260704131247-02: docs/content/delivery/scopes/1.mvp/tasks/09.mvp-09-docs-only-loop-operation.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- local-20260704131247-03: docs/content/operations/3.documentation.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
 
 #### Next Gate
 
