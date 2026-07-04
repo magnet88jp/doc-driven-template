@@ -12,6 +12,11 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  runtimeConfig: {
+    todoTableName: '',
+    awsRegion: '',
+  },
+
   routeRules: {
     '/api/**': {
       cors: true,

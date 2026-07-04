@@ -1,0 +1,9 @@
+{
+  "name": "sam-infra",
+  "private": true,
+  "scripts": {
+    "sam:validate": "sam validate --template-file template.yaml",
+    "sam:build": "sam build --template-file template.yaml",
+    "sam:deploy": "sam deploy --guided"
+  }
+}

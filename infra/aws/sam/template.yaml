@@ -1,0 +1,42 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: ToDo application infrastructure for doc-driven-template.
+
+Parameters:
+  EnvironmentName:
+    Type: String
+    Default: dev
+    AllowedPattern: '^[a-zA-Z0-9-]+$'
+    Description: Environment suffix used in resource names.
+
+Resources:
+  TodoTable:
+    Type: AWS::DynamoDB::Table
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      TableName: !Sub '${AWS::StackName}-${EnvironmentName}-todos'
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      SSESpecification:
+        SSEEnabled: true
+      Tags:
+        - Key: Application
+          Value: doc-driven-template
+        - Key: Component
+          Value: todos
+        - Key: Environment
+          Value: !Ref EnvironmentName
+
+Outputs:
+  TodoTableName:
+    Description: DynamoDB table name for ToDo persistence.
+    Value: !Ref TodoTable
+  TodoTableArn:
+    Description: DynamoDB table ARN for ToDo persistence.
+    Value: !GetAtt TodoTable.Arn

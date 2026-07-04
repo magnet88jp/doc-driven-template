@@ -11,9 +11,11 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.1079.0",
     "@iconify-json/lucide": "^1.2.111",
     "@iconify-json/simple-icons": "^1.2.84",
     "@internationalized/date": "^3.12.2",
+    "@aws-sdk/client-dynamodb": "^3.1079.0",
     "@nuxt/ui": "^4.8.1",
     "@tanstack/table-core": "^8.21.3",
     "@unovis/ts": "^1.6.5",
