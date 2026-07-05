@@ -28,6 +28,13 @@ Current readiness: 11/25. L2 promotion requires 20/25, three useful L1 runs, and
 
 | ID | Stage | Approval | Attempts | Source Docs | Impact Area | Maker Action | Verifier Evidence |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
+| gha-28723761231-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/1.development-roadmap.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28723761231-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/1.overview.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28723761231-03 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28723761231-04 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/3.acceptance-criteria.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28723761231-05 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/01.le-01-task-schema-and-status-discipline.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28723761231-06 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/02.le-02-loop-state-separation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28723761231-07 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/03.le-03-harness-brief-generation.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28722095668-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/1.development-roadmap.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28722095668-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/2.current-scope.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28722095668-03 | L1_ANALYZED | required | 0 | `docs/content/delivery/3.implementation-flow.md` | delivery scope | Decide whether to promote to L2 | Pending |
@@ -1448,6 +1455,45 @@ No implementation files were changed. The loop stopped before Maker implementati
 - gha-28722095668-45: docs/content/operations/7.monthly.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
 - gha-28722095668-46: docs/content/operations/8.ad-hoc.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
 - gha-28722095668-47: docs/content/operations/9.environment-info.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
+
+#### Next Gate
+
+- L2 can start only after a human marks one candidate as approved.
+- Verifier evidence is required before any item moves to resolved.
+
+### gha-28723761231
+
+- Timestamp: 2026-07-05T00:00:16.844Z
+- Mode: L1 impact analysis
+- Trigger: push
+- Branch: main
+- HEAD: b6ad5b0
+- Changed docs: 7
+- Budget cap: $10/run
+- Estimated cost: $0
+- Max attempts: 3
+
+#### Candidate Items
+
+| ID | Stage | Approval | Attempts | Source Docs | Impact Area | Maker Action | Verifier Evidence |
+| --- | --- | --- | ---: | --- | --- | --- | --- |
+| gha-28723761231-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/1.development-roadmap.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28723761231-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/1.overview.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28723761231-03 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28723761231-04 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/3.acceptance-criteria.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28723761231-05 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/01.le-01-task-schema-and-status-discipline.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28723761231-06 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/02.le-02-loop-state-separation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28723761231-07 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/03.le-03-harness-brief-generation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+
+#### Impact Analysis
+
+- gha-28723761231-01: docs/content/delivery/1.development-roadmap.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-28723761231-02: docs/content/delivery/scopes/2.loop-engineering-turn-foundation/1.overview.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-28723761231-03: docs/content/delivery/scopes/2.loop-engineering-turn-foundation/2.task-list.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-28723761231-04: docs/content/delivery/scopes/2.loop-engineering-turn-foundation/3.acceptance-criteria.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-28723761231-05: docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/01.le-01-task-schema-and-status-discipline.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-28723761231-06: docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/02.le-02-loop-state-separation.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-28723761231-07: docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/03.le-03-harness-brief-generation.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
 
 #### Next Gate
 
