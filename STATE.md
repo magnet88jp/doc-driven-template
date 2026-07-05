@@ -28,6 +28,7 @@ Current readiness: 11/25. L2 promotion requires 20/25, three useful L1 runs, and
 
 | ID | Stage | Approval | Attempts | Source Docs | Impact Area | Maker Action | Verifier Evidence |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
+| gha-28725461124-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/3.implementation-flow.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28724818157-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/3.implementation-flow.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28724818157-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28724818157-03 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/01.le-01-task-schema-and-status-discipline.md` | delivery scope | Decide whether to promote to L2 | Pending |
@@ -1722,6 +1723,33 @@ No implementation files were changed. The loop stopped before Maker implementati
 - gha-28724818157-01: docs/content/delivery/3.implementation-flow.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
 - gha-28724818157-02: docs/content/delivery/scopes/2.loop-engineering-turn-foundation/2.task-list.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
 - gha-28724818157-03: docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/01.le-01-task-schema-and-status-discipline.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+
+#### Next Gate
+
+- L2 can start only after a human marks one candidate as approved.
+- Verifier evidence is required before any item moves to resolved.
+
+### gha-28725461124
+
+- Timestamp: 2026-07-05T01:18:15.818Z
+- Mode: L1 impact analysis
+- Trigger: push
+- Branch: feature/work0704-8
+- HEAD: 6116b94
+- Changed docs: 1
+- Budget cap: $10/run
+- Estimated cost: $0
+- Max attempts: 3
+
+#### Candidate Items
+
+| ID | Stage | Approval | Attempts | Source Docs | Impact Area | Maker Action | Verifier Evidence |
+| --- | --- | --- | ---: | --- | --- | --- | --- |
+| gha-28725461124-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/3.implementation-flow.md` | delivery scope | Decide whether to promote to L2 | Pending |
+
+#### Impact Analysis
+
+- gha-28725461124-01: docs/content/delivery/3.implementation-flow.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
 
 #### Next Gate
 
