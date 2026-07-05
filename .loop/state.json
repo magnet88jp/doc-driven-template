@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-05T08:53:05.652Z",
+  "sourceOfTruth": "docs/content/",
+  "humanDashboard": "docs/content/delivery/loop-dashboard.md",
+  "compatibilityMirror": "STATE.md",
+  "currentTurn": {
+    "runId": "local-20260705085305-l2",
+    "mode": "L2 gate",
+    "result": "ready",
+    "approvedItem": "gha-28725482289-04",
+    "ownerRole": "human + maker",
+    "summary": "Maker may implement within the approved scope and verifier must record command evidence."
+  },
+  "policy": {
+    "budgetUsd": 10,
+    "estimatedCostUsd": 0,
+    "maxAttempts": 3,
+    "writeSurface": [
+      "STATE.md",
+      ".loop/state.json",
+      ".loop/runs/*.md",
+      "docs/content/delivery/loop-dashboard.md"
+    ],
+    "secretPolicy": "Do not read or write secrets, credentials, tokens, .env, or .env.* values."
+  },
+  "sourceDocs": [
+    "docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/02.le-02-loop-state-separation.md"
+  ],
+  "verification": [],
+  "handoff": [],
+  "candidates": [
+    {
+      "id": "gha-28725482289-04",
+      "stage": "L1_ANALYZED",
+      "approval": "required",
+      "attempts": "0",
+      "sourceDocs": "docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/02.le-02-loop-state-separation.md",
+      "impactArea": "delivery scope",
+      "makerAction": "Decide whether to promote to L2",
+      "verifierEvidence": "Pending"
+    },
+    {
+      "id": "gha-28735108593-47",
+      "stage": "L1_ANALYZED",
+      "approval": "required",
+      "attempts": "0",
+      "sourceDocs": "docs/content/operations/9.environment-info.md",
+      "impactArea": "operations",
+      "makerAction": "Decide whether to promote to L2",
+      "verifierEvidence": "Pending"
+    },
+    {
+      "id": "gha-28735108593-46",
+      "stage": "L1_ANALYZED",
+      "approval": "required",
+      "attempts": "0",
+      "sourceDocs": "docs/content/operations/8.ad-hoc.md",
+      "impactArea": "operations",
+      "makerAction": "Decide whether to promote to L2",
+      "verifierEvidence": "Pending"
+    },
+    {
+      "id": "gha-28735108593-45",
+      "stage": "L1_ANALYZED",
+      "approval": "required",
+      "attempts": "0",
+      "sourceDocs": "docs/content/operations/7.monthly.md",
+      "impactArea": "operations",
+      "makerAction": "Decide whether to promote to L2",
+      "verifierEvidence": "Pending"
+    },
+    {
+      "id": "gha-28735108593-44",
+      "stage": "L1_ANALYZED",
+      "approval": "required",
+      "attempts": "0",
+      "sourceDocs": "docs/content/operations/6.weekly.md",
+      "impactArea": "operations",
+      "makerAction": "Decide whether to promote to L2",
+      "verifierEvidence": "Pending"
+    },
+    {
+      "id": "gha-28735108593-43",
+      "stage": "L1_ANALYZED",
+      "approval": "required",
+      "attempts": "0",
+      "sourceDocs": "docs/content/operations/5.daily.md",
+      "impactArea": "operations",
+      "makerAction": "Decide whether to promote to L2",
+      "verifierEvidence": "Pending"
+    },
+    {
+      "id": "gha-28735108593-42",
+      "stage": "L1_ANALYZED",
+      "approval": "required",
+      "attempts": "0",
+      "sourceDocs": "docs/content/operations/4.initial.md",
+      "impactArea": "operations",
+      "makerAction": "Decide whether to promote to L2",
+      "verifierEvidence": "Pending"
+    },
+    {
+      "id": "gha-28735108593-41",
+      "stage": "L1_ANALYZED",
+      "approval": "required",
+      "attempts": "0",
+      "sourceDocs": "docs/content/operations/3.documentation.md",
+      "impactArea": "operations",
+      "makerAction": "Decide whether to promote to L2",
+      "verifierEvidence": "Pending"
+    },
+    {
+      "id": "gha-28735108593-40",
+      "stage": "L1_ANALYZED",
+      "approval": "required",
+      "attempts": "0",
+      "sourceDocs": "docs/content/operations/2.overview.md",
+      "impactArea": "operations",
+      "makerAction": "Decide whether to promote to L2",
+      "verifierEvidence": "Pending"
+    },
+    {
+      "id": "gha-28735108593-39",
+      "stage": "L1_ANALYZED",
+      "approval": "required",
+      "attempts": "0",
+      "sourceDocs": "docs/content/operations/10.loop-engineering.md",
+      "impactArea": "operations",
+      "makerAction": "Decide whether to promote to L2",
+      "verifierEvidence": "Pending"
+    },
+    {
+      "id": "gha-28735108593-38",
+      "stage": "L1_ANALYZED",
+      "approval": "required",
+      "attempts": "0",
+      "sourceDocs": "docs/content/operations/1.getting-started.md",
+      "impactArea": "operations",
+      "makerAction": "Decide whether to promote to L2",
+      "verifierEvidence": "Pending"
+    },
+    {
+      "id": "gha-28735108593-37",
+      "stage": "L1_ANALYZED",
+      "approval": "required",
+      "attempts": "0",
+      "sourceDocs": "docs/content/maintenance/2.pr-automation.md",
+      "impactArea": "maintenance",
+      "makerAction": "Decide whether to promote to L2",
+      "verifierEvidence": "Pending"
+    },
+    {
+      "id": "gha-28735108593-36",
+      "stage": "L1_ANALYZED",
+      "approval": "required",
+      "attempts": "0",
+      "sourceDocs": "docs/content/maintenance/1.state-management.md",
+      "impactArea": "maintenance",
+      "makerAction": "Decide whether to promote to L2",
+      "verifierEvidence": "Pending"
+    },
+    {
+      "id": "gha-28735108593-35",
+      "stage": "L1_ANALYZED",
+      "approval": "required",
+      "attempts": "0",
+      "sourceDocs": "docs/content/design/4.loop-engineering/4.maker-verifier.md",
+      "impactArea": "loop engineering design",
+      "makerAction": "Decide whether to promote to L2",
+      "verifierEvidence": "Pending"
+    },
+    {
+      "id": "gha-28735108593-34",
+      "stage": "L1_ANALYZED",
+      "approval": "required",
+      "attempts": "0",
+      "sourceDocs": "docs/content/design/4.loop-engineering/3.autonomy-tiers.md",
+      "impactArea": "loop engineering design",
+      "makerAction": "Decide whether to promote to L2",
+      "verifierEvidence": "Pending"
+    },
+    {
+      "id": "gha-28735108593-33",
+      "stage": "L1_ANALYZED",
+      "approval": "required",
+      "attempts": "0",
+      "sourceDocs": "docs/content/design/4.loop-engineering/2.harness-design.md",
+      "impactArea": "loop engineering design",
+      "makerAction": "Decide whether to promote to L2",
+      "verifierEvidence": "Pending"
+    },
+    {
+      "id": "gha-28735108593-32",
+      "stage": "L1_ANALYZED",
+      "approval": "required",
+      "attempts": "0",
+      "sourceDocs": "docs/content/design/4.loop-engineering/1.overall-architecture.md",
+      "impactArea": "loop engineering design",
+      "makerAction": "Decide whether to promote to L2",
+      "verifierEvidence": "Pending"
+    },
+    {
+      "id": "gha-28735108593-31",
+      "stage": "L1_ANALYZED",
+      "approval": "required",
+      "attempts": "0",
+      "sourceDocs": "docs/content/design/3.application-design/3.shared-contracts.md",
+      "impactArea": "shared contracts",
+      "makerAction": "Decide whether to promote to L2",
+      "verifierEvidence": "Pending"
+    },
+    {
+      "id": "gha-28735108593-30",
+      "stage": "L1_ANALYZED",
+      "approval": "required",
+      "attempts": "0",
+      "sourceDocs": "docs/content/design/3.application-design/2.server-api.md",
+      "impactArea": "server API design",
+      "makerAction": "Decide whether to promote to L2",
+      "verifierEvidence": "Pending"
+    },
+    {
+      "id": "gha-28735108593-29",
+      "stage": "L1_ANALYZED",
+      "approval": "required",
+      "attempts": "0",
+      "sourceDocs": "docs/content/design/3.application-design/1.web-app.md",
+      "impactArea": "web app design",
+      "makerAction": "Decide whether to promote to L2",
+      "verifierEvidence": "Pending"
+    }
+  ],
+  "recentRuns": [
+    ".loop/runs/local-20260705085305-l2.md",
+    ".loop/runs/local-20260705085234-l2.md"
+  ]
+}

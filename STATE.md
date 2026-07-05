@@ -1,6 +1,6 @@
 # Loop Engineering State
 
-This file is the machine-readable working memory for Loop Engineering. Nuxt Content under `docs/content/` remains the Reality Source. `STATE.md` records derived state, approvals, attempts, verifier evidence, and handoff conditions for follow-up loops.
+This file is the compatibility mirror and operational shortcut for Loop Engineering. Nuxt Content under `docs/content/` remains the Reality Source, `docs/content/delivery/loop-dashboard.md` is the human-facing latest dashboard, `.loop/state.json` is the machine-readable latest state, and `.loop/runs/*.md` stores per-run evidence. `STATE.md` preserves existing candidate, approval, verifier evidence, and handoff flows without deleting historical records.
 
 ## Runtime Policy
 
@@ -10,7 +10,7 @@ This file is the machine-readable working memory for Loop Engineering. Nuxt Cont
 - Budget cap: $10/run
 - Token cap: 120k input / 20k output per run
 - Max attempts per item: 3
-- L1 write surface: `STATE.md`
+- L1 write surface: `STATE.md`, `.loop/state.json`, `.loop/runs/*.md`, `docs/content/delivery/loop-dashboard.md`
 
 ## Readiness Score
 
@@ -1965,6 +1965,49 @@ No implementation files were changed. The loop stopped before Maker implementati
 - gha-28729030110-45: docs/content/operations/7.monthly.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
 - gha-28729030110-46: docs/content/operations/8.ad-hoc.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
 - gha-28729030110-47: docs/content/operations/9.environment-info.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
+
+#### Next Gate
+
+- L2 can start only after a human marks one candidate as approved.
+- Verifier evidence is required before any item moves to resolved.
+
+### local-20260705085234-l2
+
+- Timestamp: 2026-07-05T08:52:34.482Z
+- Mode: L2 gate
+- Result: ready
+- Approved item: gha-28725482289-04
+- Next action: maker may implement within the approved scope and verifier must record command evidence.
+
+### local-20260705085305-l2
+
+- Timestamp: 2026-07-05T08:53:05.651Z
+- Mode: L2 gate
+- Result: ready
+- Approved item: gha-28725482289-04
+- Next action: maker may implement within the approved scope and verifier must record command evidence.
+
+### gha-28737995709
+
+- Timestamp: 2026-07-05T10:39:15.743Z
+- Mode: L1 impact analysis
+- Trigger: push
+- Branch: feature/work0704-9
+- HEAD: 46aeeae
+- Changed docs: 0
+- Budget cap: $10/run
+- Estimated cost: $0
+- Max attempts: 3
+
+#### Candidate Items
+
+| ID | Stage | Approval | Attempts | Source Docs | Impact Area | Maker Action | Verifier Evidence |
+| --- | --- | --- | ---: | --- | --- | --- | --- |
+| - | - | - | 0 | - | - | - | - |
+
+#### Impact Analysis
+
+- No changed Markdown files under `docs/content/` were detected.
 
 #### Next Gate
 

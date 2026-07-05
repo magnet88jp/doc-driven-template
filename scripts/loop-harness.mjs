@@ -1,10 +1,14 @@
 #!/usr/bin/env node
 import { execFileSync, spawnSync } from 'node:child_process'
-import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 
 const root = process.cwd()
 const statePath = path.join(root, 'STATE.md')
+const loopDir = path.join(root, '.loop')
+const loopRunsDir = path.join(loopDir, 'runs')
+const loopStatePath = path.join(loopDir, 'state.json')
+const loopDashboardPath = path.join(root, 'docs/content/delivery/loop-dashboard.md')
 const command = process.argv[2] || 'l1'
 const budgetUsd = Number.parseFloat(process.env.LOOP_BUDGET_USD || '10')
 const estimatedCostUsd = Number.parseFloat(process.env.LOOP_ESTIMATED_COST_USD || '0')
@@ -106,6 +110,258 @@ function runId() {
 function appendState(section) {
   const current = readFileSync(statePath, 'utf8')
   writeFileSync(statePath, `${current.trimEnd()}\n\n${section}\n`)
+  return section
+}
+
+function ensureLoopDirs() {
+  mkdirSync(loopRunsDir, { recursive: true })
+}
+
+function recentRunFiles(limit = 10) {
+  if (!existsSync(loopRunsDir)) {
+    return []
+  }
+
+  return readdirSync(loopRunsDir, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.md'))
+    .map((entry) => `.loop/runs/${entry.name}`)
+    .sort()
+    .slice(-limit)
+    .reverse()
+}
+
+function uniqueRunLogPath(id) {
+  const safeId = id.replace(/[^A-Za-z0-9_.-]/g, '-')
+  let candidate = path.join(loopRunsDir, `${safeId}.md`)
+  let index = 2
+
+  while (existsSync(candidate)) {
+    candidate = path.join(loopRunsDir, `${safeId}-${index}.md`)
+    index += 1
+  }
+
+  return candidate
+}
+
+function extractCandidateRows(limit = 20) {
+  const state = existsSync(statePath) ? readFileSync(statePath, 'utf8') : ''
+  const rows = []
+
+  for (const line of state.split('\n')) {
+    const match = line.match(/^\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*`?([^|`]+)`?\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|$/)
+    if (!match) {
+      continue
+    }
+
+    const [, id, stage, approval, attempts, sourceDocs, impactArea, makerAction, verifierEvidence] = match.map((value) => value.trim())
+    if (id === 'ID' || id === '---' || id === '-') {
+      continue
+    }
+
+    rows.push({ id, stage, approval, attempts, sourceDocs, impactArea, makerAction, verifierEvidence })
+  }
+
+  return rows.slice(-limit).reverse()
+}
+
+function persistLoopArtifacts(run) {
+  ensureLoopDirs()
+  const now = new Date().toISOString()
+  const logPath = uniqueRunLogPath(run.id)
+  const relativeLogPath = path.relative(root, logPath)
+  const allCandidateRows = extractCandidateRows(Number.POSITIVE_INFINITY)
+  const approvedCandidate = run.approvedItem
+    ? allCandidateRows.find((candidate) => candidate.id === run.approvedItem)
+    : undefined
+  const sourceDocs = run.sourceDocs?.length
+    ? run.sourceDocs
+    : approvedCandidate
+      ? [approvedCandidate.sourceDocs]
+      : []
+  const recentCandidates = extractCandidateRows()
+  const candidateRows = approvedCandidate && !recentCandidates.some((candidate) => candidate.id === approvedCandidate.id)
+    ? [approvedCandidate, ...recentCandidates.slice(0, 19)]
+    : recentCandidates
+  const recentRuns = recentRunFiles()
+  const machineState = {
+    schemaVersion: 1,
+    generatedAt: now,
+    sourceOfTruth: 'docs/content/',
+    humanDashboard: 'docs/content/delivery/loop-dashboard.md',
+    compatibilityMirror: 'STATE.md',
+    currentTurn: {
+      runId: run.id,
+      mode: run.mode,
+      result: run.result,
+      approvedItem: run.approvedItem || '',
+      ownerRole: run.ownerRole || ownerRoleForMode(run.mode),
+      summary: run.summary || ''
+    },
+    policy: {
+      budgetUsd,
+      estimatedCostUsd,
+      maxAttempts,
+      writeSurface: [
+        'STATE.md',
+        '.loop/state.json',
+        '.loop/runs/*.md',
+        'docs/content/delivery/loop-dashboard.md'
+      ],
+      secretPolicy: 'Do not read or write secrets, credentials, tokens, .env, or .env.* values.'
+    },
+    sourceDocs,
+    verification: run.verification || [],
+    handoff: run.handoff || [],
+    candidates: candidateRows,
+    recentRuns: [relativeLogPath, ...recentRuns.filter((file) => file !== relativeLogPath)].slice(0, 10)
+  }
+
+  writeFileSync(logPath, renderRunLog({ ...run, timestamp: now, statePath: '.loop/state.json', sourceDocs }))
+  writeFileSync(loopStatePath, `${JSON.stringify(machineState, null, 2)}\n`)
+  writeFileSync(loopDashboardPath, renderDashboard(machineState))
+}
+
+function ownerRoleForMode(mode) {
+  if (mode.startsWith('verifier')) {
+    return 'verifier'
+  }
+  if (mode.includes('gate')) {
+    return 'human + maker'
+  }
+  return 'harness'
+}
+
+function renderRunLog(run) {
+  return [
+    '---',
+    `title: Loop Run ${run.id}`,
+    `description: ${run.mode} ${run.result}`,
+    'navigation: false',
+    '---',
+    '',
+    `# Loop Run ${run.id}`,
+    '',
+    '| Field | Value |',
+    '| --- | --- |',
+    `| Timestamp | ${run.timestamp} |`,
+    `| Mode | ${run.mode} |`,
+    `| Result | ${run.result} |`,
+    `| Approved Item | ${run.approvedItem || 'none'} |`,
+    `| Machine State | \`${run.statePath}\` |`,
+    '',
+    '## Summary',
+    '',
+    run.summary || 'No summary recorded.',
+    '',
+    '## Source Docs',
+    '',
+    markdownItems(run.sourceDocs || [], 'No source docs recorded.'),
+    '',
+    '## Verification',
+    '',
+    markdownItems(run.verification || [], 'No verifier evidence recorded for this run.'),
+    '',
+    '## Handoff',
+    '',
+    markdownItems(run.handoff || [], 'No handoff condition recorded.'),
+    ''
+  ].join('\n')
+}
+
+function renderDashboard(state) {
+  const current = state.currentTurn
+  const gateState = current.result === 'blocked'
+    ? 'blocked'
+    : current.result === 'ready'
+      ? 'approved'
+      : current.mode.startsWith('verifier')
+        ? 'verifying'
+        : current.result
+  const nextHumanAction = current.result === 'blocked'
+    ? 'Provide the missing approval, enable flag, or human decision recorded in the handoff queue.'
+    : current.mode.startsWith('verifier')
+      ? 'Review verifier evidence and decide whether the task can move to resolved.'
+      : 'Review the current turn, keep implementation inside the approved primary area, and require verifier evidence before resolution.'
+
+  return [
+    '---',
+    'title: Loop Dashboard',
+    'description: Human-facing latest status for Loop Engineering.',
+    'navigation:',
+    '  icon: i-lucide-activity',
+    '---',
+    '',
+    '# Loop Dashboard',
+    '',
+    '## Current Turn',
+    '',
+    '| Field | Value |',
+    '| --- | --- |',
+    `| Run ID | \`${current.runId}\` |`,
+    `| Mode | ${current.mode} |`,
+    `| Status | ${current.result} |`,
+    `| Autonomy Gate | ${gateState} |`,
+    `| Owner Role | ${current.ownerRole} |`,
+    `| Approved Item | ${current.approvedItem || 'none'} |`,
+    '',
+    '## Intent',
+    '',
+    current.summary || 'No current intent recorded.',
+    '',
+    '## Gate State',
+    '',
+    `**${gateState}**`,
+    '',
+    '## Next Human Action',
+    '',
+    nextHumanAction,
+    '',
+    '## Source Docs',
+    '',
+    markdownItems(state.sourceDocs, 'No source docs recorded for the latest run.'),
+    '',
+    '## Scope Boundary',
+    '',
+    '| Boundary | Rule |',
+    '| --- | --- |',
+    '| Reality Source | `docs/content/` |',
+    '| Compatibility Mirror | `STATE.md` |',
+    '| Machine State | `.loop/state.json` |',
+    '| Run Logs | `.loop/runs/*.md` |',
+    '| Dashboard | `docs/content/delivery/loop-dashboard.md` |',
+    '| Denylist Reminder | Do not read or write secrets, credentials, tokens, `.env`, or `.env.*` values. |',
+    '',
+    '## Verification',
+    '',
+    markdownItems(state.verification, 'No verifier evidence recorded for the latest run.'),
+    '',
+    '## Handoff Queue',
+    '',
+    markdownItems(state.handoff, 'No handoff condition recorded for the latest run.'),
+    '',
+    '## Candidate Items',
+    '',
+    state.candidates.length
+      ? [
+          '| ID | Stage | Approval | Attempts | Source Docs | Impact Area |',
+          '| --- | --- | --- | ---: | --- | --- |',
+          ...state.candidates.map((candidate) => `| ${candidate.id} | ${candidate.stage} | ${candidate.approval} | ${candidate.attempts} | \`${candidate.sourceDocs}\` | ${candidate.impactArea} |`)
+        ].join('\n')
+      : 'No candidate items recorded.',
+    '',
+    '## Recent Runs',
+    '',
+    markdownItems(state.recentRuns.map((file) => `\`${file}\``), 'No run logs recorded.'),
+    ''
+  ].join('\n')
+}
+
+function markdownItems(items, fallback) {
+  if (!items.length) {
+    return `- ${fallback}`
+  }
+
+  return items.map((item) => `- ${item}`).join('\n')
 }
 
 function listMarkdownFiles(dir) {
@@ -394,7 +650,7 @@ function l1() {
     : '| - | - | - | 0 | - | - | - | - |'
 
   mergeCandidateSummary(candidates)
-  appendState([
+  const section = appendState([
     `### ${id}`,
     '',
     `- Timestamp: ${now}`,
@@ -423,6 +679,15 @@ function l1() {
     '- Verifier evidence is required before any item moves to resolved.',
     ''
   ].join('\n'))
+  persistLoopArtifacts({
+    id,
+    mode: 'L1 impact analysis',
+    result: 'candidates-recorded',
+    summary: `Detected ${files.length} changed docs file(s) and recorded candidate items for human L2 approval.`,
+    sourceDocs: files,
+    verification: ['Verifier evidence is required before any item moves to resolved.'],
+    section
+  })
 
   console.log(`L1 report appended to STATE.md for ${files.length} docs file(s).`)
 }
@@ -435,7 +700,7 @@ function gatedMode(mode) {
   const enabled = process.env.LOOP_ENABLE_AUTONOMY === mode
 
   if (!approvedItem || !enabled) {
-    appendState([
+    const section = appendState([
       `### ${id}-${mode}`,
       '',
       `- Timestamp: ${now}`,
@@ -449,11 +714,20 @@ function gatedMode(mode) {
       '- Human approval and explicit enable flag are required before this tier may modify implementation or prepare a PR.',
       ''
     ].join('\n'))
+    persistLoopArtifacts({
+      id: `${id}-${mode}`,
+      mode: `${mode.toUpperCase()} gate`,
+      result: 'blocked',
+      approvedItem,
+      summary: `${mode.toUpperCase()} gate blocked because the approved item or explicit enable flag is missing.`,
+      handoff: ['Human approval and explicit enable flag are required before this tier may modify implementation or prepare a PR.'],
+      section
+    })
     console.log(`${mode.toUpperCase()} blocked: set LOOP_APPROVED_ITEM_ID and LOOP_ENABLE_AUTONOMY=${mode}.`)
     return
   }
 
-  appendState([
+  const section = appendState([
     `### ${id}-${mode}`,
     '',
     `- Timestamp: ${now}`,
@@ -463,6 +737,14 @@ function gatedMode(mode) {
     '- Next action: maker may implement within the approved scope and verifier must record command evidence.',
     ''
   ].join('\n'))
+  persistLoopArtifacts({
+    id: `${id}-${mode}`,
+    mode: `${mode.toUpperCase()} gate`,
+    result: 'ready',
+    approvedItem,
+    summary: 'Maker may implement within the approved scope and verifier must record command evidence.',
+    section
+  })
   console.log(`${mode.toUpperCase()} gate ready for ${approvedItem}.`)
 }
 
@@ -506,8 +788,9 @@ function verify(target) {
 }
 
 function appendVerifierEvidence(target, rows) {
-  appendState([
-    `### ${runId()}-verify-${target}`,
+  const id = `${runId()}-verify-${target}`
+  const section = appendState([
+    `### ${id}`,
     '',
     `- Timestamp: ${new Date().toISOString()}`,
     `- Mode: verifier:${target}`,
@@ -519,6 +802,15 @@ function appendVerifierEvidence(target, rows) {
     ...rows,
     ''
   ].join('\n'))
+  persistLoopArtifacts({
+    id,
+    mode: `verifier:${target}`,
+    result: rows.every((row) => row.includes(' | pass | ')) ? 'pass' : 'fail',
+    approvedItem: process.env.LOOP_APPROVED_ITEM_ID || '',
+    summary: `Verifier ${target} command set completed.`,
+    verification: rows,
+    section
+  })
 }
 
 if (command === 'l1') {
