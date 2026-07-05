@@ -13,6 +13,24 @@ Before implementation, read:
 5. `docs/content/design/4.loop-engineering/` when changing loop behavior
 6. `STATE.md` latest candidate item and verifier evidence
 
+For Loop Engineering tasks, also read the task schema and status discipline in `docs/content/delivery/3.implementation-flow.md` before editing. The target task must be the approved task for the requested work, not just a nearby candidate.
+
+## Pre-Implementation Stop Rules
+
+Stop before implementation when the target task is missing any required schema field:
+
+- `id`
+- `status`
+- `autonomy`
+- `source_of_truth`
+- `primary_area`
+- `acceptance_criteria`
+- `verification_commands`
+- `handoff_conditions`
+- `last_evidence`
+
+Stop when task `status` is not actionable for the requested role, when `autonomy` does not allow the requested action, or when `verification_commands` or `handoff_conditions` are empty. Use `pnpm loop:validate-task <task-id>` for a machine check when the task has an ID.
+
 ## Doc-Code Mapping
 
 | Reality Source | Primary Code Area | Verification |
@@ -61,4 +79,3 @@ Do not automatically modify:
 - deployment credentials and parameter files
 - `apps/web/amplify.yml`, `docs/amplify.yml`
 - `.github/workflows/*deploy*`
-
