@@ -92,6 +92,13 @@ export default defineNuxtConfig({
         contentFilters: [
           { field: 'path', operator: 'LIKE', value: '/delivery%' }
         ]
+      },
+      {
+        title: 'Maintenance',
+        contentCollection: 'docs',
+        contentFilters: [
+          { field: 'path', operator: 'LIKE', value: '/maintenance%' }
+        ]
       }
     ]
   },

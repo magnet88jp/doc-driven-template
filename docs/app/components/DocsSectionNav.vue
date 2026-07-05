@@ -19,6 +19,12 @@ const sections = [{
   icon: 'i-lucide-list-checks',
   to: '/delivery/development-roadmap',
   active: (path: string) => path.startsWith('/delivery')
+}, {
+  label: 'メンテナンス',
+  description: 'State, evidence, and PR lifecycle',
+  icon: 'i-lucide-database',
+  to: '/maintenance/state-management',
+  active: (path: string) => path.startsWith('/maintenance')
 }]
 </script>
 

@@ -14,7 +14,7 @@ Document Driven Monorepo
 #description
 このドキュメントサイトは、AI Agent と人間が同じ前提を読んでから実装するための合意面です。
 
-設計の理想形は `design` に置き、実際の運用手順は `operations` に置きます。現在の開発スコープ、理想設計との差分、タスク、受け入れ条件は `delivery` に置きます。
+設計の理想形は `design` に置き、実際の運用手順は `operations` に置きます。現在の開発スコープ、理想設計との差分、タスク、受け入れ条件は `delivery` に置きます。状態管理、検証証跡、PR lifecycle の保守ルールは `maintenance` に置き、人間と AI Agent が確認します。
 
 #links
   :::u-button
@@ -46,6 +46,17 @@ Document Driven Monorepo
   icon: i-lucide-list-checks
   ---
   開発計画を見る
+  :::
+
+  :::u-button
+  ---
+  to: /maintenance/state-management
+  color: neutral
+  variant: outline
+  size: xl
+  icon: i-lucide-database
+  ---
+  保守ルールを見る
   :::
 ::
 
@@ -144,6 +155,18 @@ Concept Flow
 
   #description
   現在の開発判断、スコープ、タスク、受け入れ条件。
+  :::
+
+  :::u-page-feature
+  ---
+  icon: i-lucide-database
+  to: /maintenance/state-management
+  ---
+  #title
+  maintenance
+
+  #description
+  状態管理、検証証跡、PR lifecycle、運用後の保守ルール。
   :::
 ::
 
@@ -246,5 +269,17 @@ Documentation Map
 
   #description
   現在スコープ、完了済みスコープ、タスク仕様、検証ログを設計思想から分けて管理します。
+  :::
+
+  :::u-page-feature
+  ---
+  icon: i-lucide-database
+  to: /maintenance/state-management
+  ---
+  #title
+  Maintenance
+
+  #description
+  Loop state、Verifier evidence、handoff、PR lifecycle の保守ルールを管理します。
   :::
 ::

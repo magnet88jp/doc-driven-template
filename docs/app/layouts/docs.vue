@@ -12,7 +12,9 @@ const activeNavigation = computed(() => {
     ? '/delivery'
     : route.path.startsWith('/operations')
       ? '/operations'
-      : '/design'
+      : route.path.startsWith('/maintenance')
+        ? '/maintenance'
+        : '/design'
   const section = items.find(item => item.path === sectionPath)
 
   const children = section?.children || []
