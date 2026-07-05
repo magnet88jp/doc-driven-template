@@ -28,6 +28,7 @@ Current readiness: 11/25. L2 promotion requires 20/25, three useful L1 runs, and
 
 | ID | Stage | Approval | Attempts | Source Docs | Impact Area | Maker Action | Verifier Evidence |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
+| gha-28724552367-01 | L1_ANALYZED | required | 0 | `docs/content/index.md` | documentation | Decide whether to promote to L2 | Pending |
 | gha-28724170204-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/1.development-roadmap.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28724170204-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/2.current-scope.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28724170204-03 | L1_ANALYZED | required | 0 | `docs/content/delivery/3.implementation-flow.md` | delivery scope | Decide whether to promote to L2 | Pending |
@@ -1660,6 +1661,33 @@ No implementation files were changed. The loop stopped before Maker implementati
 - gha-28724170204-45: docs/content/operations/7.monthly.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
 - gha-28724170204-46: docs/content/operations/8.ad-hoc.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
 - gha-28724170204-47: docs/content/operations/9.environment-info.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
+
+#### Next Gate
+
+- L2 can start only after a human marks one candidate as approved.
+- Verifier evidence is required before any item moves to resolved.
+
+### gha-28724552367
+
+- Timestamp: 2026-07-05T00:36:12.431Z
+- Mode: L1 impact analysis
+- Trigger: push
+- Branch: feature/work0704-8
+- HEAD: 17c33b8
+- Changed docs: 1
+- Budget cap: $10/run
+- Estimated cost: $0
+- Max attempts: 3
+
+#### Candidate Items
+
+| ID | Stage | Approval | Attempts | Source Docs | Impact Area | Maker Action | Verifier Evidence |
+| --- | --- | --- | ---: | --- | --- | --- | --- |
+| gha-28724552367-01 | L1_ANALYZED | required | 0 | `docs/content/index.md` | documentation | Decide whether to promote to L2 | Pending |
+
+#### Impact Analysis
+
+- gha-28724552367-01: docs/content/index.md: documentation; likely implementation: no direct implementation mapping; suggested checks: `pnpm --dir docs typecheck`, `pnpm --dir docs lint`
 
 #### Next Gate
 
