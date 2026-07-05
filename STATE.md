@@ -28,6 +28,14 @@ Current readiness: 11/25. L2 promotion requires 20/25, three useful L1 runs, and
 
 | ID | Stage | Approval | Attempts | Source Docs | Impact Area | Maker Action | Verifier Evidence |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
+| gha-28725482289-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/3.implementation-flow.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28725482289-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28725482289-03 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/01.le-01-task-schema-and-status-discipline.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28725482289-04 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/02.le-02-loop-state-separation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28725482289-05 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/03.le-03-harness-brief-generation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28725482289-06 | L1_ANALYZED | required | 0 | `docs/content/design/4.loop-engineering/2.harness-design.md` | loop engineering design | Decide whether to promote to L2 | Pending |
+| gha-28725482289-07 | L1_ANALYZED | required | 0 | `docs/content/index.md` | documentation | Decide whether to promote to L2 | Pending |
+| gha-28725482289-08 | L1_ANALYZED | required | 0 | `docs/content/maintenance/1.state-management.md` | maintenance | Decide whether to promote to L2 | Pending |
 | gha-28725461124-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/3.implementation-flow.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28724818157-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/3.implementation-flow.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-28724818157-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
@@ -1750,6 +1758,47 @@ No implementation files were changed. The loop stopped before Maker implementati
 #### Impact Analysis
 
 - gha-28725461124-01: docs/content/delivery/3.implementation-flow.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+
+#### Next Gate
+
+- L2 can start only after a human marks one candidate as approved.
+- Verifier evidence is required before any item moves to resolved.
+
+### gha-28725482289
+
+- Timestamp: 2026-07-05T01:19:12.936Z
+- Mode: L1 impact analysis
+- Trigger: push
+- Branch: main
+- HEAD: ae3aa75
+- Changed docs: 8
+- Budget cap: $10/run
+- Estimated cost: $0
+- Max attempts: 3
+
+#### Candidate Items
+
+| ID | Stage | Approval | Attempts | Source Docs | Impact Area | Maker Action | Verifier Evidence |
+| --- | --- | --- | ---: | --- | --- | --- | --- |
+| gha-28725482289-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/3.implementation-flow.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28725482289-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28725482289-03 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/01.le-01-task-schema-and-status-discipline.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28725482289-04 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/02.le-02-loop-state-separation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28725482289-05 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/03.le-03-harness-brief-generation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-28725482289-06 | L1_ANALYZED | required | 0 | `docs/content/design/4.loop-engineering/2.harness-design.md` | loop engineering design | Decide whether to promote to L2 | Pending |
+| gha-28725482289-07 | L1_ANALYZED | required | 0 | `docs/content/index.md` | documentation | Decide whether to promote to L2 | Pending |
+| gha-28725482289-08 | L1_ANALYZED | required | 0 | `docs/content/maintenance/1.state-management.md` | maintenance | Decide whether to promote to L2 | Pending |
+
+#### Impact Analysis
+
+- gha-28725482289-01: docs/content/delivery/3.implementation-flow.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-28725482289-02: docs/content/delivery/scopes/2.loop-engineering-turn-foundation/2.task-list.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-28725482289-03: docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/01.le-01-task-schema-and-status-discipline.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-28725482289-04: docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/02.le-02-loop-state-separation.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-28725482289-05: docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/03.le-03-harness-brief-generation.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-28725482289-06: docs/content/design/4.loop-engineering/2.harness-design.md: loop engineering design; likely implementation: `scripts/loop-harness.mjs`, `STATE.md`, `LOOP.md`, `.github/workflows/`; suggested checks: `node --check scripts/loop-harness.mjs`, `pnpm loop:l1`
+- gha-28725482289-07: docs/content/index.md: documentation; likely implementation: no direct implementation mapping; suggested checks: `pnpm --dir docs typecheck`, `pnpm --dir docs lint`
+- gha-28725482289-08: docs/content/maintenance/1.state-management.md: maintenance; likely implementation: `STATE.md`, verifier records, PR lifecycle metadata; suggested checks: harness state inspection plus relevant command evidence
 
 #### Next Gate
 
