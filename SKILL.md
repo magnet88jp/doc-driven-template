@@ -31,6 +31,10 @@ Stop before implementation when the target task is missing any required schema f
 
 Stop when task `status` is not actionable for the requested role, when `autonomy` does not allow the requested action, or when `verification_commands` or `handoff_conditions` are empty. Use `pnpm loop:validate-task <task-id>` for a machine check when the task has an ID.
 
+For Loop Engineering tasks, run `pnpm loop:validate-task <task-id>` before editing. If it fails, stop and report the schema error instead of implementing.
+
+After implementation, run `pnpm loop:validate-task <task-id>` again before reporting completion. If the task schema changed or other schema-managed task pages were touched, also run `pnpm loop:validate-tasks`.
+
 ## Doc-Code Mapping
 
 | Reality Source | Primary Code Area | Verification |
@@ -61,6 +65,8 @@ Stop when task `status` is not actionable for the requested role, when `autonomy
 ## Verification Commands
 
 - Loop harness syntax: `node --check scripts/loop-harness.mjs`
+- Single task schema validation: `pnpm loop:validate-task <task-id>`
+- Schema-managed task validation: `pnpm loop:validate-tasks`
 - L1 analysis: `pnpm loop:l1`
 - Docs typecheck: `pnpm --dir docs typecheck`
 - Docs lint: `pnpm --dir docs lint`
