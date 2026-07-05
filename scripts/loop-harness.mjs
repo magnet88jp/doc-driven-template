@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { execFileSync, spawnSync } from 'node:child_process'
-import { existsSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 
 const root = process.cwd()
@@ -9,6 +9,20 @@ const command = process.argv[2] || 'l1'
 const budgetUsd = Number.parseFloat(process.env.LOOP_BUDGET_USD || '10')
 const estimatedCostUsd = Number.parseFloat(process.env.LOOP_ESTIMATED_COST_USD || '0')
 const maxAttempts = Number.parseInt(process.env.LOOP_MAX_ATTEMPTS || '3', 10)
+const taskRoot = path.join(root, 'docs/content/delivery/scopes')
+const requiredTaskFields = [
+  'id',
+  'status',
+  'autonomy',
+  'source_of_truth',
+  'primary_area',
+  'acceptance_criteria',
+  'verification_commands',
+  'handoff_conditions',
+  'last_evidence'
+]
+const allowedStatuses = new Set(['planned', 'approved', 'in_progress', 'verifying', 'resolved', 'blocked'])
+const allowedAutonomy = new Set(['manual', 'assisted', 'autonomous'])
 
 if (estimatedCostUsd > budgetUsd) {
   throw new Error(`Loop budget exceeded: estimated $${estimatedCostUsd} > cap $${budgetUsd}`)
@@ -92,6 +106,248 @@ function runId() {
 function appendState(section) {
   const current = readFileSync(statePath, 'utf8')
   writeFileSync(statePath, `${current.trimEnd()}\n\n${section}\n`)
+}
+
+function listMarkdownFiles(dir) {
+  if (!existsSync(dir)) {
+    return []
+  }
+
+  const entries = readdirSync(dir, { withFileTypes: true })
+  return entries.flatMap((entry) => {
+    const entryPath = path.join(dir, entry.name)
+    if (entry.isDirectory()) {
+      return listMarkdownFiles(entryPath)
+    }
+    return entry.isFile() && entry.name.endsWith('.md') ? [entryPath] : []
+  })
+}
+
+function parseFrontmatter(content) {
+  if (!content.startsWith('---\n')) {
+    return {}
+  }
+
+  const end = content.indexOf('\n---', 4)
+  if (end === -1) {
+    return {}
+  }
+
+  const frontmatter = content.slice(4, end).split('\n')
+  const parsed = {}
+  let currentKey = ''
+
+  for (const rawLine of frontmatter) {
+    const line = rawLine.replace(/\s+$/, '')
+    if (!line.trim() || line.trim().startsWith('#')) {
+      continue
+    }
+
+    const listMatch = line.match(/^\s{2,}-\s+(.*)$/)
+    if (listMatch && currentKey) {
+      const value = listMatch[1].trim()
+      if (!Array.isArray(parsed[currentKey])) {
+        parsed[currentKey] = parsed[currentKey] ? [parsed[currentKey]] : []
+      }
+      parsed[currentKey].push(unquoteYamlValue(value))
+      continue
+    }
+
+    const keyMatch = line.match(/^([A-Za-z0-9_-]+):(?:\s*(.*))?$/)
+    if (!keyMatch) {
+      currentKey = ''
+      continue
+    }
+
+    currentKey = keyMatch[1]
+    const value = (keyMatch[2] || '').trim()
+    parsed[currentKey] = value ? unquoteYamlValue(value) : []
+  }
+
+  return parsed
+}
+
+function unquoteYamlValue(value) {
+  const trimmed = value.trim()
+  if ((trimmed.startsWith('"') && trimmed.endsWith('"')) || (trimmed.startsWith("'") && trimmed.endsWith("'"))) {
+    return trimmed.slice(1, -1)
+  }
+  return trimmed
+}
+
+function sectionContent(content, heading) {
+  const pattern = new RegExp(`^##\\s+${escapeRegExp(heading)}\\s*$`, 'im')
+  const match = content.match(pattern)
+  if (!match || match.index === undefined) {
+    return ''
+  }
+  const start = match.index + match[0].length
+  const rest = content.slice(start)
+  const next = rest.search(/^##\s+/m)
+  return (next === -1 ? rest : rest.slice(0, next)).trim()
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+function markdownListItems(markdown) {
+  return markdown
+    .split('\n')
+    .map((line) => line.match(/^\s*-\s+(.+)$/)?.[1]?.trim() || '')
+    .filter(Boolean)
+}
+
+function taskFromFile(filePath) {
+  const content = readFileSync(filePath, 'utf8')
+  const frontmatter = parseFrontmatter(content)
+  const relativePath = path.relative(root, filePath)
+  const task = { ...frontmatter }
+
+  task.source_file = relativePath
+  task.schema_keys = Object.keys(frontmatter).filter((field) => requiredTaskFields.includes(field))
+  task.id = task.id || inferTaskId(content, filePath)
+  task.primary_area = task.primary_area?.length ? task.primary_area : markdownListItems(sectionContent(content, 'Primary Area'))
+  task.acceptance_criteria = task.acceptance_criteria?.length ? task.acceptance_criteria : markdownListItems(sectionContent(content, 'Acceptance Criteria'))
+  task.verification_commands = task.verification_commands?.length ? task.verification_commands : extractCommands(sectionContent(content, 'Verification'))
+  task.handoff_conditions = task.handoff_conditions?.length ? task.handoff_conditions : markdownListItems(sectionContent(content, 'Handoff Conditions'))
+
+  return task
+}
+
+function inferTaskId(content, filePath) {
+  const title = content.match(/^#\s+([A-Z]+-\d+)/m)
+  if (title) {
+    return title[1]
+  }
+
+  const basename = path.basename(filePath)
+  const fileId = basename.match(/(?:^|\.)([a-z]+-\d+)/i)
+  return fileId ? fileId[1].toUpperCase() : ''
+}
+
+function extractCommands(section) {
+  const fence = section.match(/```(?:bash|sh|txt)?\n([\s\S]*?)```/i)
+  if (!fence) {
+    return markdownListItems(section)
+  }
+
+  return fence[1]
+    .split('\n')
+    .map((line) => line.trim())
+    .filter((line) => line && !line.startsWith('#'))
+}
+
+function allTasks() {
+  return listMarkdownFiles(taskRoot)
+    .filter((file) => file.includes(`${path.sep}tasks${path.sep}`))
+    .map(taskFromFile)
+}
+
+function findTask(taskId) {
+  const normalized = taskId.trim().toUpperCase()
+  return allTasks().find((task) => String(task.id).toUpperCase() === normalized)
+}
+
+function isPresent(value) {
+  if (Array.isArray(value)) {
+    return value.some((item) => String(item).trim())
+  }
+  return String(value || '').trim().length > 0
+}
+
+function validateTaskShape(task) {
+  const errors = []
+  for (const field of requiredTaskFields) {
+    if (!isPresent(task[field])) {
+      errors.push(`missing required field: ${field}`)
+    }
+  }
+
+  if (isPresent(task.status) && !allowedStatuses.has(String(task.status))) {
+    errors.push(`invalid status: ${task.status}`)
+  }
+
+  if (isPresent(task.autonomy) && !allowedAutonomy.has(String(task.autonomy))) {
+    errors.push(`invalid autonomy: ${task.autonomy}`)
+  }
+
+  if (isPresent(task.source_of_truth)) {
+    const sources = Array.isArray(task.source_of_truth) ? task.source_of_truth : [task.source_of_truth]
+    for (const source of sources) {
+      if (!String(source).startsWith('docs/content/')) {
+        errors.push(`invalid source_of_truth: ${source}`)
+      } else if (!existsSync(path.join(root, source))) {
+        errors.push(`source_of_truth does not exist: ${source}`)
+      }
+    }
+  }
+
+  if (!isPresent(task.verification_commands)) {
+    errors.push('verification_commands must include at least one command')
+  }
+
+  if (!isPresent(task.handoff_conditions)) {
+    errors.push('handoff_conditions must include at least one condition')
+  }
+
+  return errors
+}
+
+function validateTask(taskId) {
+  if (!taskId) {
+    console.error('Task ID is required. Usage: pnpm loop:validate-task <task-id>')
+    process.exit(1)
+  }
+
+  const task = findTask(taskId)
+  if (!task) {
+    console.error(`Unknown task ID: ${taskId}`)
+    process.exit(1)
+  }
+
+  const errors = validateTaskShape(task)
+  if (errors.length) {
+    console.error(`Task validation failed for ${task.id} (${task.source_file}):`)
+    for (const error of errors) {
+      console.error(`- ${error}`)
+    }
+    process.exit(1)
+  }
+
+  console.log(`Task ${task.id} is valid: ${task.source_file}`)
+}
+
+function validateTasks() {
+  const discoveredTasks = allTasks()
+  const tasks = discoveredTasks.filter(isSchemaManagedTask)
+  const failures = []
+
+  for (const task of tasks) {
+    const errors = validateTaskShape(task)
+    if (errors.length) {
+      failures.push({ task, errors })
+    }
+  }
+
+  if (failures.length) {
+    console.error(`Task validation failed for ${failures.length} task(s):`)
+    for (const { task, errors } of failures) {
+      console.error(`\n${task.id || 'unknown'} (${task.source_file}):`)
+      for (const error of errors) {
+        console.error(`- ${error}`)
+      }
+    }
+    process.exit(1)
+  }
+
+  const skipped = discoveredTasks.length - tasks.length
+  const skippedSummary = skipped ? ` Skipped ${skipped} legacy task(s) without schema fields.` : ''
+  console.log(`Validated ${tasks.length} task(s).${skippedSummary}`)
+}
+
+function isSchemaManagedTask(task) {
+  return task.schema_keys.length > 0 || task.source_file.startsWith('docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/')
 }
 
 function mergeCandidateSummary(candidates) {
@@ -271,6 +527,10 @@ if (command === 'l1') {
   gatedMode('l2')
 } else if (command === 'l3') {
   gatedMode('l3')
+} else if (command === 'validate-task') {
+  validateTask(process.argv[3] || '')
+} else if (command === 'validate-tasks') {
+  validateTasks()
 } else if (command.startsWith('verify:')) {
   verify(command.split(':')[1])
 } else {
