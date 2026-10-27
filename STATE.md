@@ -28,6 +28,54 @@ Current readiness: 11/25. L2 promotion requires 20/25, three useful L1 runs, and
 
 | ID | Stage | Approval | Attempts | Source Docs | Impact Area | Maker Action | Verifier Evidence |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
+| gha-40450891691-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/1.development-roadmap.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/2.current-scope.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-03 | L1_ANALYZED | required | 0 | `docs/content/delivery/3.implementation-flow.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-04 | L1_ANALYZED | required | 0 | `docs/content/delivery/loop-dashboard.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-05 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/1.overview.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-06 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-07 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/3.acceptance-criteria.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-08 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/01.mvp-01-monorepo-docs-baseline.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-09 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/02.mvp-02-web-app-baseline.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-10 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/03.mvp-03-shared-contract-baseline.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-11 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/04.mvp-04-loop-engineering-pipeline.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-12 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/05.mvp-05-todo-list-l2-validation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-13 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/06.mvp-06-todo-dynamodb-l3-validation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-14 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/07.mvp-07-sam-dynamodb-provisioning.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-15 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/08.mvp-08-web-todo-dynamodb-integration.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-16 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/10.mvp-10-harness-pr-brief-generation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-17 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/1.overview.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-18 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-19 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/3.acceptance-criteria.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-20 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/01.le-01-task-schema-and-status-discipline.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-21 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/02.le-02-loop-state-separation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-22 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/03.le-03-harness-brief-generation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-23 | L1_ANALYZED | required | 0 | `docs/content/design/1.overview/1.vision.md` | design | Decide whether to promote to L2 | Pending |
+| gha-40450891691-24 | L1_ANALYZED | required | 0 | `docs/content/design/1.overview/2.monorepo.md` | design | Decide whether to promote to L2 | Pending |
+| gha-40450891691-25 | L1_ANALYZED | required | 0 | `docs/content/design/1.overview/3.design-principles.md` | design | Decide whether to promote to L2 | Pending |
+| gha-40450891691-26 | L1_ANALYZED | required | 0 | `docs/content/design/1.overview/4.documentation-governance.md` | design | Decide whether to promote to L2 | Pending |
+| gha-40450891691-27 | L1_ANALYZED | required | 0 | `docs/content/design/2.architecture/1.system-overview.md` | architecture | Decide whether to promote to L2 | Pending |
+| gha-40450891691-28 | L1_ANALYZED | required | 0 | `docs/content/design/2.architecture/2.layer-model.md` | architecture | Decide whether to promote to L2 | Pending |
+| gha-40450891691-29 | L1_ANALYZED | required | 0 | `docs/content/design/2.architecture/3.responsibility-boundary.md` | architecture | Decide whether to promote to L2 | Pending |
+| gha-40450891691-30 | L1_ANALYZED | required | 0 | `docs/content/design/3.application-design/1.web-app.md` | web app design | Decide whether to promote to L2 | Pending |
+| gha-40450891691-31 | L1_ANALYZED | required | 0 | `docs/content/design/3.application-design/2.server-api.md` | server API design | Decide whether to promote to L2 | Pending |
+| gha-40450891691-32 | L1_ANALYZED | required | 0 | `docs/content/design/3.application-design/3.shared-contracts.md` | shared contracts | Decide whether to promote to L2 | Pending |
+| gha-40450891691-33 | L1_ANALYZED | required | 0 | `docs/content/design/4.loop-engineering/1.overall-architecture.md` | loop engineering design | Decide whether to promote to L2 | Pending |
+| gha-40450891691-34 | L1_ANALYZED | required | 0 | `docs/content/design/4.loop-engineering/2.harness-design.md` | loop engineering design | Decide whether to promote to L2 | Pending |
+| gha-40450891691-35 | L1_ANALYZED | required | 0 | `docs/content/design/4.loop-engineering/3.autonomy-tiers.md` | loop engineering design | Decide whether to promote to L2 | Pending |
+| gha-40450891691-36 | L1_ANALYZED | required | 0 | `docs/content/design/4.loop-engineering/4.maker-verifier.md` | loop engineering design | Decide whether to promote to L2 | Pending |
+| gha-40450891691-37 | L1_ANALYZED | required | 0 | `docs/content/maintenance/1.state-management.md` | maintenance | Decide whether to promote to L2 | Pending |
+| gha-40450891691-38 | L1_ANALYZED | required | 0 | `docs/content/maintenance/2.pr-automation.md` | maintenance | Decide whether to promote to L2 | Pending |
+| gha-40450891691-39 | L1_ANALYZED | required | 0 | `docs/content/operations/1.getting-started.md` | operations | Decide whether to promote to L2 | Pending |
+| gha-40450891691-40 | L1_ANALYZED | required | 0 | `docs/content/operations/10.loop-engineering.md` | operations | Decide whether to promote to L2 | Pending |
+| gha-40450891691-41 | L1_ANALYZED | required | 0 | `docs/content/operations/2.overview.md` | operations | Decide whether to promote to L2 | Pending |
+| gha-40450891691-42 | L1_ANALYZED | required | 0 | `docs/content/operations/3.documentation.md` | operations | Decide whether to promote to L2 | Pending |
+| gha-40450891691-43 | L1_ANALYZED | required | 0 | `docs/content/operations/4.initial.md` | operations | Decide whether to promote to L2 | Pending |
+| gha-40450891691-44 | L1_ANALYZED | required | 0 | `docs/content/operations/5.daily.md` | operations | Decide whether to promote to L2 | Pending |
+| gha-40450891691-45 | L1_ANALYZED | required | 0 | `docs/content/operations/6.weekly.md` | operations | Decide whether to promote to L2 | Pending |
+| gha-40450891691-46 | L1_ANALYZED | required | 0 | `docs/content/operations/7.monthly.md` | operations | Decide whether to promote to L2 | Pending |
+| gha-40450891691-47 | L1_ANALYZED | required | 0 | `docs/content/operations/8.ad-hoc.md` | operations | Decide whether to promote to L2 | Pending |
+| gha-40450891691-48 | L1_ANALYZED | required | 0 | `docs/content/operations/9.environment-info.md` | operations | Decide whether to promote to L2 | Pending |
 | gha-40268522085-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/1.development-roadmap.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-40268522085-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/2.current-scope.md` | delivery scope | Decide whether to promote to L2 | Pending |
 | gha-40268522085-03 | L1_ANALYZED | required | 0 | `docs/content/delivery/3.implementation-flow.md` | delivery scope | Decide whether to promote to L2 | Pending |
@@ -21150,6 +21198,127 @@ No implementation files were changed. The loop stopped before Maker implementati
 - gha-40268522085-46: docs/content/operations/7.monthly.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
 - gha-40268522085-47: docs/content/operations/8.ad-hoc.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
 - gha-40268522085-48: docs/content/operations/9.environment-info.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
+
+#### Next Gate
+
+- L2 can start only after a human marks one candidate as approved.
+- Verifier evidence is required before any item moves to resolved.
+
+### gha-40450891691
+
+- Timestamp: 2026-10-27T04:39:08.964Z
+- Mode: L1 impact analysis
+- Trigger: schedule
+- Branch: main
+- HEAD: cb178fe
+- Changed docs: 48
+- Budget cap: $10/run
+- Estimated cost: $0
+- Max attempts: 3
+
+#### Candidate Items
+
+| ID | Stage | Approval | Attempts | Source Docs | Impact Area | Maker Action | Verifier Evidence |
+| --- | --- | --- | ---: | --- | --- | --- | --- |
+| gha-40450891691-01 | L1_ANALYZED | required | 0 | `docs/content/delivery/1.development-roadmap.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-02 | L1_ANALYZED | required | 0 | `docs/content/delivery/2.current-scope.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-03 | L1_ANALYZED | required | 0 | `docs/content/delivery/3.implementation-flow.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-04 | L1_ANALYZED | required | 0 | `docs/content/delivery/loop-dashboard.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-05 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/1.overview.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-06 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-07 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/3.acceptance-criteria.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-08 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/01.mvp-01-monorepo-docs-baseline.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-09 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/02.mvp-02-web-app-baseline.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-10 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/03.mvp-03-shared-contract-baseline.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-11 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/04.mvp-04-loop-engineering-pipeline.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-12 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/05.mvp-05-todo-list-l2-validation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-13 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/06.mvp-06-todo-dynamodb-l3-validation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-14 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/07.mvp-07-sam-dynamodb-provisioning.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-15 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/08.mvp-08-web-todo-dynamodb-integration.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-16 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/1.mvp/tasks/10.mvp-10-harness-pr-brief-generation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-17 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/1.overview.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-18 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/2.task-list.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-19 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/3.acceptance-criteria.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-20 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/01.le-01-task-schema-and-status-discipline.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-21 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/02.le-02-loop-state-separation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-22 | L1_ANALYZED | required | 0 | `docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/03.le-03-harness-brief-generation.md` | delivery scope | Decide whether to promote to L2 | Pending |
+| gha-40450891691-23 | L1_ANALYZED | required | 0 | `docs/content/design/1.overview/1.vision.md` | design | Decide whether to promote to L2 | Pending |
+| gha-40450891691-24 | L1_ANALYZED | required | 0 | `docs/content/design/1.overview/2.monorepo.md` | design | Decide whether to promote to L2 | Pending |
+| gha-40450891691-25 | L1_ANALYZED | required | 0 | `docs/content/design/1.overview/3.design-principles.md` | design | Decide whether to promote to L2 | Pending |
+| gha-40450891691-26 | L1_ANALYZED | required | 0 | `docs/content/design/1.overview/4.documentation-governance.md` | design | Decide whether to promote to L2 | Pending |
+| gha-40450891691-27 | L1_ANALYZED | required | 0 | `docs/content/design/2.architecture/1.system-overview.md` | architecture | Decide whether to promote to L2 | Pending |
+| gha-40450891691-28 | L1_ANALYZED | required | 0 | `docs/content/design/2.architecture/2.layer-model.md` | architecture | Decide whether to promote to L2 | Pending |
+| gha-40450891691-29 | L1_ANALYZED | required | 0 | `docs/content/design/2.architecture/3.responsibility-boundary.md` | architecture | Decide whether to promote to L2 | Pending |
+| gha-40450891691-30 | L1_ANALYZED | required | 0 | `docs/content/design/3.application-design/1.web-app.md` | web app design | Decide whether to promote to L2 | Pending |
+| gha-40450891691-31 | L1_ANALYZED | required | 0 | `docs/content/design/3.application-design/2.server-api.md` | server API design | Decide whether to promote to L2 | Pending |
+| gha-40450891691-32 | L1_ANALYZED | required | 0 | `docs/content/design/3.application-design/3.shared-contracts.md` | shared contracts | Decide whether to promote to L2 | Pending |
+| gha-40450891691-33 | L1_ANALYZED | required | 0 | `docs/content/design/4.loop-engineering/1.overall-architecture.md` | loop engineering design | Decide whether to promote to L2 | Pending |
+| gha-40450891691-34 | L1_ANALYZED | required | 0 | `docs/content/design/4.loop-engineering/2.harness-design.md` | loop engineering design | Decide whether to promote to L2 | Pending |
+| gha-40450891691-35 | L1_ANALYZED | required | 0 | `docs/content/design/4.loop-engineering/3.autonomy-tiers.md` | loop engineering design | Decide whether to promote to L2 | Pending |
+| gha-40450891691-36 | L1_ANALYZED | required | 0 | `docs/content/design/4.loop-engineering/4.maker-verifier.md` | loop engineering design | Decide whether to promote to L2 | Pending |
+| gha-40450891691-37 | L1_ANALYZED | required | 0 | `docs/content/maintenance/1.state-management.md` | maintenance | Decide whether to promote to L2 | Pending |
+| gha-40450891691-38 | L1_ANALYZED | required | 0 | `docs/content/maintenance/2.pr-automation.md` | maintenance | Decide whether to promote to L2 | Pending |
+| gha-40450891691-39 | L1_ANALYZED | required | 0 | `docs/content/operations/1.getting-started.md` | operations | Decide whether to promote to L2 | Pending |
+| gha-40450891691-40 | L1_ANALYZED | required | 0 | `docs/content/operations/10.loop-engineering.md` | operations | Decide whether to promote to L2 | Pending |
+| gha-40450891691-41 | L1_ANALYZED | required | 0 | `docs/content/operations/2.overview.md` | operations | Decide whether to promote to L2 | Pending |
+| gha-40450891691-42 | L1_ANALYZED | required | 0 | `docs/content/operations/3.documentation.md` | operations | Decide whether to promote to L2 | Pending |
+| gha-40450891691-43 | L1_ANALYZED | required | 0 | `docs/content/operations/4.initial.md` | operations | Decide whether to promote to L2 | Pending |
+| gha-40450891691-44 | L1_ANALYZED | required | 0 | `docs/content/operations/5.daily.md` | operations | Decide whether to promote to L2 | Pending |
+| gha-40450891691-45 | L1_ANALYZED | required | 0 | `docs/content/operations/6.weekly.md` | operations | Decide whether to promote to L2 | Pending |
+| gha-40450891691-46 | L1_ANALYZED | required | 0 | `docs/content/operations/7.monthly.md` | operations | Decide whether to promote to L2 | Pending |
+| gha-40450891691-47 | L1_ANALYZED | required | 0 | `docs/content/operations/8.ad-hoc.md` | operations | Decide whether to promote to L2 | Pending |
+| gha-40450891691-48 | L1_ANALYZED | required | 0 | `docs/content/operations/9.environment-info.md` | operations | Decide whether to promote to L2 | Pending |
+
+#### Impact Analysis
+
+- gha-40450891691-01: docs/content/delivery/1.development-roadmap.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-02: docs/content/delivery/2.current-scope.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-03: docs/content/delivery/3.implementation-flow.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-04: docs/content/delivery/loop-dashboard.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-05: docs/content/delivery/scopes/1.mvp/1.overview.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-06: docs/content/delivery/scopes/1.mvp/2.task-list.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-07: docs/content/delivery/scopes/1.mvp/3.acceptance-criteria.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-08: docs/content/delivery/scopes/1.mvp/tasks/01.mvp-01-monorepo-docs-baseline.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-09: docs/content/delivery/scopes/1.mvp/tasks/02.mvp-02-web-app-baseline.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-10: docs/content/delivery/scopes/1.mvp/tasks/03.mvp-03-shared-contract-baseline.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-11: docs/content/delivery/scopes/1.mvp/tasks/04.mvp-04-loop-engineering-pipeline.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-12: docs/content/delivery/scopes/1.mvp/tasks/05.mvp-05-todo-list-l2-validation.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-13: docs/content/delivery/scopes/1.mvp/tasks/06.mvp-06-todo-dynamodb-l3-validation.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-14: docs/content/delivery/scopes/1.mvp/tasks/07.mvp-07-sam-dynamodb-provisioning.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-15: docs/content/delivery/scopes/1.mvp/tasks/08.mvp-08-web-todo-dynamodb-integration.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-16: docs/content/delivery/scopes/1.mvp/tasks/10.mvp-10-harness-pr-brief-generation.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-17: docs/content/delivery/scopes/2.loop-engineering-turn-foundation/1.overview.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-18: docs/content/delivery/scopes/2.loop-engineering-turn-foundation/2.task-list.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-19: docs/content/delivery/scopes/2.loop-engineering-turn-foundation/3.acceptance-criteria.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-20: docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/01.le-01-task-schema-and-status-discipline.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-21: docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/02.le-02-loop-state-separation.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-22: docs/content/delivery/scopes/2.loop-engineering-turn-foundation/tasks/03.le-03-harness-brief-generation.md: delivery scope; likely implementation: task-specific files under `apps/`, `docs/`, future `packages/` and `infra/`; suggested checks: acceptance criteria plus affected package checks
+- gha-40450891691-23: docs/content/design/1.overview/1.vision.md: design; likely implementation: implementation area named by the design page; suggested checks: affected package lint/typecheck/build
+- gha-40450891691-24: docs/content/design/1.overview/2.monorepo.md: design; likely implementation: implementation area named by the design page; suggested checks: affected package lint/typecheck/build
+- gha-40450891691-25: docs/content/design/1.overview/3.design-principles.md: design; likely implementation: implementation area named by the design page; suggested checks: affected package lint/typecheck/build
+- gha-40450891691-26: docs/content/design/1.overview/4.documentation-governance.md: design; likely implementation: implementation area named by the design page; suggested checks: affected package lint/typecheck/build
+- gha-40450891691-27: docs/content/design/2.architecture/1.system-overview.md: architecture; likely implementation: `pnpm-workspace.yaml`, app/package boundaries; suggested checks: root script review plus affected package typechecks
+- gha-40450891691-28: docs/content/design/2.architecture/2.layer-model.md: architecture; likely implementation: `pnpm-workspace.yaml`, app/package boundaries; suggested checks: root script review plus affected package typechecks
+- gha-40450891691-29: docs/content/design/2.architecture/3.responsibility-boundary.md: architecture; likely implementation: `pnpm-workspace.yaml`, app/package boundaries; suggested checks: root script review plus affected package typechecks
+- gha-40450891691-30: docs/content/design/3.application-design/1.web-app.md: web app design; likely implementation: `apps/web/app/`, `apps/web/nuxt.config.ts`; suggested checks: `pnpm --dir apps/web typecheck`, `pnpm --dir apps/web lint`
+- gha-40450891691-31: docs/content/design/3.application-design/2.server-api.md: server API design; likely implementation: `apps/web/server/`; suggested checks: `pnpm --dir apps/web typecheck`, `pnpm --dir apps/web lint`
+- gha-40450891691-32: docs/content/design/3.application-design/3.shared-contracts.md: shared contracts; likely implementation: `apps/web/app/types/`, future `packages/shared/`; suggested checks: affected package typecheck
+- gha-40450891691-33: docs/content/design/4.loop-engineering/1.overall-architecture.md: loop engineering design; likely implementation: `scripts/loop-harness.mjs`, `STATE.md`, `LOOP.md`, `.github/workflows/`; suggested checks: `node --check scripts/loop-harness.mjs`, `pnpm loop:l1`
+- gha-40450891691-34: docs/content/design/4.loop-engineering/2.harness-design.md: loop engineering design; likely implementation: `scripts/loop-harness.mjs`, `STATE.md`, `LOOP.md`, `.github/workflows/`; suggested checks: `node --check scripts/loop-harness.mjs`, `pnpm loop:l1`
+- gha-40450891691-35: docs/content/design/4.loop-engineering/3.autonomy-tiers.md: loop engineering design; likely implementation: `scripts/loop-harness.mjs`, `STATE.md`, `LOOP.md`, `.github/workflows/`; suggested checks: `node --check scripts/loop-harness.mjs`, `pnpm loop:l1`
+- gha-40450891691-36: docs/content/design/4.loop-engineering/4.maker-verifier.md: loop engineering design; likely implementation: `scripts/loop-harness.mjs`, `STATE.md`, `LOOP.md`, `.github/workflows/`; suggested checks: `node --check scripts/loop-harness.mjs`, `pnpm loop:l1`
+- gha-40450891691-37: docs/content/maintenance/1.state-management.md: maintenance; likely implementation: `STATE.md`, verifier records, PR lifecycle metadata; suggested checks: harness state inspection plus relevant command evidence
+- gha-40450891691-38: docs/content/maintenance/2.pr-automation.md: maintenance; likely implementation: `STATE.md`, verifier records, PR lifecycle metadata; suggested checks: harness state inspection plus relevant command evidence
+- gha-40450891691-39: docs/content/operations/1.getting-started.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
+- gha-40450891691-40: docs/content/operations/10.loop-engineering.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
+- gha-40450891691-41: docs/content/operations/2.overview.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
+- gha-40450891691-42: docs/content/operations/3.documentation.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
+- gha-40450891691-43: docs/content/operations/4.initial.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
+- gha-40450891691-44: docs/content/operations/5.daily.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
+- gha-40450891691-45: docs/content/operations/6.weekly.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
+- gha-40450891691-46: docs/content/operations/7.monthly.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
+- gha-40450891691-47: docs/content/operations/8.ad-hoc.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
+- gha-40450891691-48: docs/content/operations/9.environment-info.md: operations; likely implementation: `package.json`, package scripts, operational commands; suggested checks: run or validate the documented command
 
 #### Next Gate
 
